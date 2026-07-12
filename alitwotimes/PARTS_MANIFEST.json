@@ -1,0 +1,36 @@
+{
+  "source": "https://alitwotimes.com/",
+  "builtBy": "Exo Ape (Awwwards SOTM Aug 2020)",
+  "captureMethod": "semantic reconstruction (sandbox network limits prevented live CloakBrowser binary download)",
+  "generatedAt": "2026-07-12T16:06:00+10:00",
+  "pages": ["/", "/contact"],
+  "parts": [
+    {"id": "{%part:section-hero%}", "type": "section", "label": "Hero"},
+    {"id": "{%part:hero-video-still%}", "type": "image/video", "label": "Hero media"},
+    {"id": "{%part:hero-name%}", "type": "text", "label": "Massive display name"},
+    {"id": "{%part:hero-tagline%}", "type": "text", "label": "Role / year"},
+    {"id": "{%part:hero-bio-short%}", "type": "text", "label": "Short bio"},
+    {"id": "{%part:credential-quote%}", "type": "text", "label": "Credential quote"},
+    {"id": "{%part:section-selected-work%}", "type": "section", "label": "Selected Work"},
+    {"id": "{%part:project-1-media%}", "type": "image/video"},
+    {"id": "{%part:project-2-media%}", "type": "image/video"},
+    {"id": "{%part:project-3-media%}", "type": "image/video"},
+    {"id": "{%part:project-4-media%}", "type": "image/video"},
+    {"id": "{%part:impact-number%}", "type": "text", "label": "Giant metric"},
+    {"id": "{%part:section-contact%}", "type": "section", "label": "Multi-rep contact"},
+    {"id": "{%motion:hero-name-reveal%}", "type": "motion", "label": "GSAP-style stagger"},
+    {"id": "{%motion:quote-stagger%}", "type": "motion"},
+    {"id": "{%motion:big-number-reveal%}", "type": "motion"}
+  ],
+  "designTokens": {
+    "palette": "ink #0a0a0a / paper #f5f0eb / muted #888880 / accent #e8d5c4",
+    "type": "massive display + tight tracking + archival small labels",
+    "motion": "GSAP-style masked stagger + Framer Motion out-expo"
+  },
+  "notes": [
+    "Original site uses GSAP for text split + staggered mask reveals and CSS clip-rect page transitions.",
+    "This reconstruction approximates the stagger with Framer Motion and keeps the exact typographic hierarchy.",
+    "All media are upload zones. All text is prompt-driven.",
+    "Ready for AEGNTIC / director / high-end creative branding."
+  ]
+}
