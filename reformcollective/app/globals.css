@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f9f8ee;
+  --fg: #0a0a0a;
+  --muted: #6b6758;
+  --accent: #fe3712;
+  --paper: #f9f8ee;
+  --ink: #0a0a0a;
+  --font-display: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: Georgia, "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-reform: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-mask: cubic-bezier(0.65, 0, 0.35, 1);
+  --stagger: 0.07s;
+  --duration: 0.85s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Lenis-adjacent feel: long, soft scroll chaining */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+/* Masked type reveal (Reform-style vertical wipe) */
+.mask-reveal {
+  overflow: hidden;
+  display: block;
+}
+.mask-reveal > * {
+  display: block;
+  transform: translateY(110%);
+  transition: transform var(--duration) var(--ease-reform);
+}
+.mask-reveal.is-in > * {
+  transform: translateY(0);
+}
+
+/* Design-mode helpers */
+[data-design="true"] [data-part] {
+  outline: 1px dashed rgba(254, 55, 18, 0.35);
+  outline-offset: 2px;
+}
+[data-design="true"] [data-part]::before {
+  content: attr(data-part);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 9px;
+  background: #000;
+  color: #fe3712;
+  padding: 1px 4px;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.75;
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Selection */
+::selection {
+  background: #fe3712;
+  color: #f9f8ee;
+}

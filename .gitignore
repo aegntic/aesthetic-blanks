@@ -27,3 +27,8 @@ next-env.d.ts
 .idea/
 .vscode/
 *.swp
+
+# Capture scratch (not shipped with blanks)
+_capture/
+_capture_*.py
+**/node_modules/

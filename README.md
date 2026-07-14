@@ -15,7 +15,8 @@ Each template is a complete, self-contained Next.js App Router project that:
 ```
 aesthetic-blanks/
 ├── README.md
-├── alitwotimes/          # first template (Exo Ape / Awwwards SOTM style director portfolio)
+├── alitwotimes/          # director portfolio (Exo Ape / Awwwards SOTM style)
+├── reformcollective/     # multi-page digital design agency (full depth + motion)
 ├── [next-site]/           # future blanks land here as top-level folders
 └── ...
 ```
@@ -63,6 +64,7 @@ npm install && npm run dev
 | Folder | Source inspiration | Style notes |
 |--------|--------------------|-------------|
 | `alitwotimes` | https://alitwotimes.com/ (Exo Ape, Awwwards SOTM Aug 2020) | Massive display type, cinematic hero, GSAP-style stagger, multi-rep contact, big impact number |
+| `reformcollective` | https://www.reformcollective.com/ (digital design agency) | Multi-page: work index + case studies + about capabilities + equity program + multi-step contact. Paper/ink + red accent. Lenis + mask/marquee motion DNA. 24-page full-depth capture. |
 
 ---
 

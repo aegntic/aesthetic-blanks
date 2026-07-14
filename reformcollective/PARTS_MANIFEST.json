@@ -1,0 +1,1078 @@
+{
+  "source": "https://www.reformcollective.com/",
+  "builtBy": "Reform Collective (digital design agency)",
+  "captureMethod": "cloakbrowser full-depth crawl (24 pages) + scroll motion timeline + CSS keyframe extraction",
+  "generatedAt": "2026-07-15T03:35:19+10:00",
+  "pages": [
+    "/",
+    "/work",
+    "/work/[slug]",
+    "/about",
+    "/nova",
+    "/contact"
+  ],
+  "crawlPaths": [
+    "/",
+    "/work",
+    "/about",
+    "/nova",
+    "/contact",
+    "/work/circle",
+    "/work/enzo",
+    "/work/runway",
+    "/work/campfire",
+    "/work/nervana",
+    "/work/delphi",
+    "/work/aerodome",
+    "/work/micro",
+    "/strider",
+    "/arlo",
+    "/journey",
+    "/newform",
+    "/titan-intake",
+    "/thoughtly",
+    "/boost-insurance",
+    "/impilo",
+    "/reform-co-response",
+    "/apply-for-nova",
+    "/home"
+  ],
+  "parts": [
+    {
+      "id": "{%part:nav-primary%}",
+      "type": "nav",
+      "label": "Primary header"
+    },
+    {
+      "id": "{%part:nav-logo%}",
+      "type": "text",
+      "label": "Award pill / logo"
+    },
+    {
+      "id": "{%part:nav-menu-toggle%}",
+      "type": "ui",
+      "label": "Menu toggle"
+    },
+    {
+      "id": "{%part:nav-menu-overlay%}",
+      "type": "nav",
+      "label": "Full-screen menu"
+    },
+    {
+      "id": "{%part:section-footer%}",
+      "type": "section",
+      "label": "Footer"
+    },
+    {
+      "id": "{%part:footer-cta%}",
+      "type": "text",
+      "label": "Footer chat CTA"
+    },
+    {
+      "id": "{%part:section-hero%}",
+      "type": "section",
+      "label": "Hero intro",
+      "page": "/"
+    },
+    {
+      "id": "{%part:hero-est%}",
+      "type": "text",
+      "label": "Est. mark",
+      "page": "/"
+    },
+    {
+      "id": "{%part:hero-manifesto-short%}",
+      "type": "text",
+      "label": "Hero mantra",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-featured-work%}",
+      "type": "section",
+      "label": "Featured work",
+      "page": "/"
+    },
+    {
+      "id": "{%part:featured-heading%}",
+      "type": "text",
+      "label": "Featured heading",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-manifesto%}",
+      "type": "section",
+      "label": "Manifesto",
+      "page": "/"
+    },
+    {
+      "id": "{%part:manifesto-line-1%}",
+      "type": "text",
+      "label": "Manifesto L1",
+      "page": "/"
+    },
+    {
+      "id": "{%part:manifesto-line-2%}",
+      "type": "text",
+      "label": "Manifesto L2",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-nova-cta%}",
+      "type": "section",
+      "label": "Program CTA",
+      "page": "/"
+    },
+    {
+      "id": "{%part:work-card-1%}",
+      "type": "component",
+      "label": "Work card 1"
+    },
+    {
+      "id": "{%part:work-1-media%}",
+      "type": "image/video",
+      "label": "Work 1 media"
+    },
+    {
+      "id": "{%part:work-1-title%}",
+      "type": "text",
+      "label": "Work 1 title"
+    },
+    {
+      "id": "{%part:work-1-tagline%}",
+      "type": "text",
+      "label": "Work 1 tagline"
+    },
+    {
+      "id": "{%part:work-card-2%}",
+      "type": "component",
+      "label": "Work card 2"
+    },
+    {
+      "id": "{%part:work-2-media%}",
+      "type": "image/video",
+      "label": "Work 2 media"
+    },
+    {
+      "id": "{%part:work-2-title%}",
+      "type": "text",
+      "label": "Work 2 title"
+    },
+    {
+      "id": "{%part:work-2-tagline%}",
+      "type": "text",
+      "label": "Work 2 tagline"
+    },
+    {
+      "id": "{%part:work-card-3%}",
+      "type": "component",
+      "label": "Work card 3"
+    },
+    {
+      "id": "{%part:work-3-media%}",
+      "type": "image/video",
+      "label": "Work 3 media"
+    },
+    {
+      "id": "{%part:work-3-title%}",
+      "type": "text",
+      "label": "Work 3 title"
+    },
+    {
+      "id": "{%part:work-3-tagline%}",
+      "type": "text",
+      "label": "Work 3 tagline"
+    },
+    {
+      "id": "{%part:work-card-4%}",
+      "type": "component",
+      "label": "Work card 4"
+    },
+    {
+      "id": "{%part:work-4-media%}",
+      "type": "image/video",
+      "label": "Work 4 media"
+    },
+    {
+      "id": "{%part:work-4-title%}",
+      "type": "text",
+      "label": "Work 4 title"
+    },
+    {
+      "id": "{%part:work-4-tagline%}",
+      "type": "text",
+      "label": "Work 4 tagline"
+    },
+    {
+      "id": "{%part:work-card-5%}",
+      "type": "component",
+      "label": "Work card 5"
+    },
+    {
+      "id": "{%part:work-5-media%}",
+      "type": "image/video",
+      "label": "Work 5 media"
+    },
+    {
+      "id": "{%part:work-5-title%}",
+      "type": "text",
+      "label": "Work 5 title"
+    },
+    {
+      "id": "{%part:work-5-tagline%}",
+      "type": "text",
+      "label": "Work 5 tagline"
+    },
+    {
+      "id": "{%part:work-card-6%}",
+      "type": "component",
+      "label": "Work card 6"
+    },
+    {
+      "id": "{%part:work-6-media%}",
+      "type": "image/video",
+      "label": "Work 6 media"
+    },
+    {
+      "id": "{%part:work-6-title%}",
+      "type": "text",
+      "label": "Work 6 title"
+    },
+    {
+      "id": "{%part:work-6-tagline%}",
+      "type": "text",
+      "label": "Work 6 tagline"
+    },
+    {
+      "id": "{%part:work-card-7%}",
+      "type": "component",
+      "label": "Work card 7"
+    },
+    {
+      "id": "{%part:work-7-media%}",
+      "type": "image/video",
+      "label": "Work 7 media"
+    },
+    {
+      "id": "{%part:work-7-title%}",
+      "type": "text",
+      "label": "Work 7 title"
+    },
+    {
+      "id": "{%part:work-7-tagline%}",
+      "type": "text",
+      "label": "Work 7 tagline"
+    },
+    {
+      "id": "{%part:work-card-8%}",
+      "type": "component",
+      "label": "Work card 8"
+    },
+    {
+      "id": "{%part:work-8-media%}",
+      "type": "image/video",
+      "label": "Work 8 media"
+    },
+    {
+      "id": "{%part:work-8-title%}",
+      "type": "text",
+      "label": "Work 8 title"
+    },
+    {
+      "id": "{%part:work-8-tagline%}",
+      "type": "text",
+      "label": "Work 8 tagline"
+    },
+    {
+      "id": "{%part:work-card-9%}",
+      "type": "component",
+      "label": "Work card 9"
+    },
+    {
+      "id": "{%part:work-9-media%}",
+      "type": "image/video",
+      "label": "Work 9 media"
+    },
+    {
+      "id": "{%part:work-9-title%}",
+      "type": "text",
+      "label": "Work 9 title"
+    },
+    {
+      "id": "{%part:work-9-tagline%}",
+      "type": "text",
+      "label": "Work 9 tagline"
+    },
+    {
+      "id": "{%part:work-card-10%}",
+      "type": "component",
+      "label": "Work card 10"
+    },
+    {
+      "id": "{%part:work-10-media%}",
+      "type": "image/video",
+      "label": "Work 10 media"
+    },
+    {
+      "id": "{%part:work-10-title%}",
+      "type": "text",
+      "label": "Work 10 title"
+    },
+    {
+      "id": "{%part:work-10-tagline%}",
+      "type": "text",
+      "label": "Work 10 tagline"
+    },
+    {
+      "id": "{%part:work-card-11%}",
+      "type": "component",
+      "label": "Work card 11"
+    },
+    {
+      "id": "{%part:work-11-media%}",
+      "type": "image/video",
+      "label": "Work 11 media"
+    },
+    {
+      "id": "{%part:work-11-title%}",
+      "type": "text",
+      "label": "Work 11 title"
+    },
+    {
+      "id": "{%part:work-11-tagline%}",
+      "type": "text",
+      "label": "Work 11 tagline"
+    },
+    {
+      "id": "{%part:work-card-12%}",
+      "type": "component",
+      "label": "Work card 12"
+    },
+    {
+      "id": "{%part:work-12-media%}",
+      "type": "image/video",
+      "label": "Work 12 media"
+    },
+    {
+      "id": "{%part:work-12-title%}",
+      "type": "text",
+      "label": "Work 12 title"
+    },
+    {
+      "id": "{%part:work-12-tagline%}",
+      "type": "text",
+      "label": "Work 12 tagline"
+    },
+    {
+      "id": "{%part:case-1-hero%}",
+      "type": "section",
+      "label": "Case 1 hero",
+      "page": "/work/project-01"
+    },
+    {
+      "id": "{%part:case-1-story%}",
+      "type": "text",
+      "label": "Case 1 narrative"
+    },
+    {
+      "id": "{%part:case-1-hero-media%}",
+      "type": "image/video",
+      "label": "Case 1 hero media"
+    },
+    {
+      "id": "{%part:case-1-shot-1%}",
+      "type": "image/video",
+      "label": "Case 1 shot 1"
+    },
+    {
+      "id": "{%part:case-1-shot-2%}",
+      "type": "image/video",
+      "label": "Case 1 shot 2"
+    },
+    {
+      "id": "{%part:case-1-shot-3%}",
+      "type": "image/video",
+      "label": "Case 1 shot 3"
+    },
+    {
+      "id": "{%part:case-1-shot-4%}",
+      "type": "image/video",
+      "label": "Case 1 shot 4"
+    },
+    {
+      "id": "{%part:case-2-hero%}",
+      "type": "section",
+      "label": "Case 2 hero",
+      "page": "/work/project-02"
+    },
+    {
+      "id": "{%part:case-2-story%}",
+      "type": "text",
+      "label": "Case 2 narrative"
+    },
+    {
+      "id": "{%part:case-2-hero-media%}",
+      "type": "image/video",
+      "label": "Case 2 hero media"
+    },
+    {
+      "id": "{%part:case-2-shot-1%}",
+      "type": "image/video",
+      "label": "Case 2 shot 1"
+    },
+    {
+      "id": "{%part:case-2-shot-2%}",
+      "type": "image/video",
+      "label": "Case 2 shot 2"
+    },
+    {
+      "id": "{%part:case-2-shot-3%}",
+      "type": "image/video",
+      "label": "Case 2 shot 3"
+    },
+    {
+      "id": "{%part:case-2-shot-4%}",
+      "type": "image/video",
+      "label": "Case 2 shot 4"
+    },
+    {
+      "id": "{%part:case-3-hero%}",
+      "type": "section",
+      "label": "Case 3 hero",
+      "page": "/work/project-03"
+    },
+    {
+      "id": "{%part:case-3-story%}",
+      "type": "text",
+      "label": "Case 3 narrative"
+    },
+    {
+      "id": "{%part:case-3-hero-media%}",
+      "type": "image/video",
+      "label": "Case 3 hero media"
+    },
+    {
+      "id": "{%part:case-3-shot-1%}",
+      "type": "image/video",
+      "label": "Case 3 shot 1"
+    },
+    {
+      "id": "{%part:case-3-shot-2%}",
+      "type": "image/video",
+      "label": "Case 3 shot 2"
+    },
+    {
+      "id": "{%part:case-3-shot-3%}",
+      "type": "image/video",
+      "label": "Case 3 shot 3"
+    },
+    {
+      "id": "{%part:case-3-shot-4%}",
+      "type": "image/video",
+      "label": "Case 3 shot 4"
+    },
+    {
+      "id": "{%part:case-4-hero%}",
+      "type": "section",
+      "label": "Case 4 hero",
+      "page": "/work/project-04"
+    },
+    {
+      "id": "{%part:case-4-story%}",
+      "type": "text",
+      "label": "Case 4 narrative"
+    },
+    {
+      "id": "{%part:case-4-hero-media%}",
+      "type": "image/video",
+      "label": "Case 4 hero media"
+    },
+    {
+      "id": "{%part:case-4-shot-1%}",
+      "type": "image/video",
+      "label": "Case 4 shot 1"
+    },
+    {
+      "id": "{%part:case-4-shot-2%}",
+      "type": "image/video",
+      "label": "Case 4 shot 2"
+    },
+    {
+      "id": "{%part:case-4-shot-3%}",
+      "type": "image/video",
+      "label": "Case 4 shot 3"
+    },
+    {
+      "id": "{%part:case-4-shot-4%}",
+      "type": "image/video",
+      "label": "Case 4 shot 4"
+    },
+    {
+      "id": "{%part:case-5-hero%}",
+      "type": "section",
+      "label": "Case 5 hero",
+      "page": "/work/project-05"
+    },
+    {
+      "id": "{%part:case-5-story%}",
+      "type": "text",
+      "label": "Case 5 narrative"
+    },
+    {
+      "id": "{%part:case-5-hero-media%}",
+      "type": "image/video",
+      "label": "Case 5 hero media"
+    },
+    {
+      "id": "{%part:case-5-shot-1%}",
+      "type": "image/video",
+      "label": "Case 5 shot 1"
+    },
+    {
+      "id": "{%part:case-5-shot-2%}",
+      "type": "image/video",
+      "label": "Case 5 shot 2"
+    },
+    {
+      "id": "{%part:case-5-shot-3%}",
+      "type": "image/video",
+      "label": "Case 5 shot 3"
+    },
+    {
+      "id": "{%part:case-5-shot-4%}",
+      "type": "image/video",
+      "label": "Case 5 shot 4"
+    },
+    {
+      "id": "{%part:case-6-hero%}",
+      "type": "section",
+      "label": "Case 6 hero",
+      "page": "/work/project-06"
+    },
+    {
+      "id": "{%part:case-6-story%}",
+      "type": "text",
+      "label": "Case 6 narrative"
+    },
+    {
+      "id": "{%part:case-6-hero-media%}",
+      "type": "image/video",
+      "label": "Case 6 hero media"
+    },
+    {
+      "id": "{%part:case-6-shot-1%}",
+      "type": "image/video",
+      "label": "Case 6 shot 1"
+    },
+    {
+      "id": "{%part:case-6-shot-2%}",
+      "type": "image/video",
+      "label": "Case 6 shot 2"
+    },
+    {
+      "id": "{%part:case-6-shot-3%}",
+      "type": "image/video",
+      "label": "Case 6 shot 3"
+    },
+    {
+      "id": "{%part:case-6-shot-4%}",
+      "type": "image/video",
+      "label": "Case 6 shot 4"
+    },
+    {
+      "id": "{%part:case-7-hero%}",
+      "type": "section",
+      "label": "Case 7 hero",
+      "page": "/work/project-07"
+    },
+    {
+      "id": "{%part:case-7-story%}",
+      "type": "text",
+      "label": "Case 7 narrative"
+    },
+    {
+      "id": "{%part:case-7-hero-media%}",
+      "type": "image/video",
+      "label": "Case 7 hero media"
+    },
+    {
+      "id": "{%part:case-7-shot-1%}",
+      "type": "image/video",
+      "label": "Case 7 shot 1"
+    },
+    {
+      "id": "{%part:case-7-shot-2%}",
+      "type": "image/video",
+      "label": "Case 7 shot 2"
+    },
+    {
+      "id": "{%part:case-7-shot-3%}",
+      "type": "image/video",
+      "label": "Case 7 shot 3"
+    },
+    {
+      "id": "{%part:case-7-shot-4%}",
+      "type": "image/video",
+      "label": "Case 7 shot 4"
+    },
+    {
+      "id": "{%part:case-8-hero%}",
+      "type": "section",
+      "label": "Case 8 hero",
+      "page": "/work/project-08"
+    },
+    {
+      "id": "{%part:case-8-story%}",
+      "type": "text",
+      "label": "Case 8 narrative"
+    },
+    {
+      "id": "{%part:case-8-hero-media%}",
+      "type": "image/video",
+      "label": "Case 8 hero media"
+    },
+    {
+      "id": "{%part:case-8-shot-1%}",
+      "type": "image/video",
+      "label": "Case 8 shot 1"
+    },
+    {
+      "id": "{%part:case-8-shot-2%}",
+      "type": "image/video",
+      "label": "Case 8 shot 2"
+    },
+    {
+      "id": "{%part:case-8-shot-3%}",
+      "type": "image/video",
+      "label": "Case 8 shot 3"
+    },
+    {
+      "id": "{%part:case-8-shot-4%}",
+      "type": "image/video",
+      "label": "Case 8 shot 4"
+    },
+    {
+      "id": "{%part:case-9-hero%}",
+      "type": "section",
+      "label": "Case 9 hero",
+      "page": "/work/project-09"
+    },
+    {
+      "id": "{%part:case-9-story%}",
+      "type": "text",
+      "label": "Case 9 narrative"
+    },
+    {
+      "id": "{%part:case-9-hero-media%}",
+      "type": "image/video",
+      "label": "Case 9 hero media"
+    },
+    {
+      "id": "{%part:case-9-shot-1%}",
+      "type": "image/video",
+      "label": "Case 9 shot 1"
+    },
+    {
+      "id": "{%part:case-9-shot-2%}",
+      "type": "image/video",
+      "label": "Case 9 shot 2"
+    },
+    {
+      "id": "{%part:case-9-shot-3%}",
+      "type": "image/video",
+      "label": "Case 9 shot 3"
+    },
+    {
+      "id": "{%part:case-9-shot-4%}",
+      "type": "image/video",
+      "label": "Case 9 shot 4"
+    },
+    {
+      "id": "{%part:case-10-hero%}",
+      "type": "section",
+      "label": "Case 10 hero",
+      "page": "/work/project-10"
+    },
+    {
+      "id": "{%part:case-10-story%}",
+      "type": "text",
+      "label": "Case 10 narrative"
+    },
+    {
+      "id": "{%part:case-10-hero-media%}",
+      "type": "image/video",
+      "label": "Case 10 hero media"
+    },
+    {
+      "id": "{%part:case-10-shot-1%}",
+      "type": "image/video",
+      "label": "Case 10 shot 1"
+    },
+    {
+      "id": "{%part:case-10-shot-2%}",
+      "type": "image/video",
+      "label": "Case 10 shot 2"
+    },
+    {
+      "id": "{%part:case-10-shot-3%}",
+      "type": "image/video",
+      "label": "Case 10 shot 3"
+    },
+    {
+      "id": "{%part:case-10-shot-4%}",
+      "type": "image/video",
+      "label": "Case 10 shot 4"
+    },
+    {
+      "id": "{%part:case-11-hero%}",
+      "type": "section",
+      "label": "Case 11 hero",
+      "page": "/work/project-11"
+    },
+    {
+      "id": "{%part:case-11-story%}",
+      "type": "text",
+      "label": "Case 11 narrative"
+    },
+    {
+      "id": "{%part:case-11-hero-media%}",
+      "type": "image/video",
+      "label": "Case 11 hero media"
+    },
+    {
+      "id": "{%part:case-11-shot-1%}",
+      "type": "image/video",
+      "label": "Case 11 shot 1"
+    },
+    {
+      "id": "{%part:case-11-shot-2%}",
+      "type": "image/video",
+      "label": "Case 11 shot 2"
+    },
+    {
+      "id": "{%part:case-11-shot-3%}",
+      "type": "image/video",
+      "label": "Case 11 shot 3"
+    },
+    {
+      "id": "{%part:case-11-shot-4%}",
+      "type": "image/video",
+      "label": "Case 11 shot 4"
+    },
+    {
+      "id": "{%part:case-12-hero%}",
+      "type": "section",
+      "label": "Case 12 hero",
+      "page": "/work/project-12"
+    },
+    {
+      "id": "{%part:case-12-story%}",
+      "type": "text",
+      "label": "Case 12 narrative"
+    },
+    {
+      "id": "{%part:case-12-hero-media%}",
+      "type": "image/video",
+      "label": "Case 12 hero media"
+    },
+    {
+      "id": "{%part:case-12-shot-1%}",
+      "type": "image/video",
+      "label": "Case 12 shot 1"
+    },
+    {
+      "id": "{%part:case-12-shot-2%}",
+      "type": "image/video",
+      "label": "Case 12 shot 2"
+    },
+    {
+      "id": "{%part:case-12-shot-3%}",
+      "type": "image/video",
+      "label": "Case 12 shot 3"
+    },
+    {
+      "id": "{%part:case-12-shot-4%}",
+      "type": "image/video",
+      "label": "Case 12 shot 4"
+    },
+    {
+      "id": "{%part:section-about-hero%}",
+      "type": "section",
+      "label": "About hero",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:about-lede%}",
+      "type": "text",
+      "label": "About lede",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:section-marquee%}",
+      "type": "section",
+      "label": "Details marquee",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:marquee-phrase%}",
+      "type": "text",
+      "label": "Marquee phrase",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:section-capabilities%}",
+      "type": "section",
+      "label": "Capabilities",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:capability-branding-title%}",
+      "type": "text",
+      "label": "Branding mega title",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:capability-digital-title%}",
+      "type": "text",
+      "label": "Digital Design mega title",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:capability-development-title%}",
+      "type": "text",
+      "label": "Development mega title",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:section-people%}",
+      "type": "section",
+      "label": "People",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:section-testimonials%}",
+      "type": "section",
+      "label": "Testimonials",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:person-1-photo%}",
+      "type": "image",
+      "label": "Person 1 photo",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:person-2-photo%}",
+      "type": "image",
+      "label": "Person 2 photo",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:person-3-photo%}",
+      "type": "image",
+      "label": "Person 3 photo",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:person-4-photo%}",
+      "type": "image",
+      "label": "Person 4 photo",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:testimonial-1-quote%}",
+      "type": "text",
+      "label": "Testimonial 1",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:testimonial-2-quote%}",
+      "type": "text",
+      "label": "Testimonial 2",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:testimonial-3-quote%}",
+      "type": "text",
+      "label": "Testimonial 3",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:testimonial-4-quote%}",
+      "type": "text",
+      "label": "Testimonial 4",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:testimonial-5-quote%}",
+      "type": "text",
+      "label": "Testimonial 5",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:section-nova-hero%}",
+      "type": "section",
+      "label": "Program hero",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-mega%}",
+      "type": "text",
+      "label": "Mega display phrase",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:section-nova-body%}",
+      "type": "section",
+      "label": "Program body",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:section-nova-faq%}",
+      "type": "section",
+      "label": "Founder FAQ",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-1-q%}",
+      "type": "text",
+      "label": "FAQ Q1",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-1-a%}",
+      "type": "text",
+      "label": "FAQ A1",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-2-q%}",
+      "type": "text",
+      "label": "FAQ Q2",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-2-a%}",
+      "type": "text",
+      "label": "FAQ A2",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-3-q%}",
+      "type": "text",
+      "label": "FAQ Q3",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-3-a%}",
+      "type": "text",
+      "label": "FAQ A3",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-4-q%}",
+      "type": "text",
+      "label": "FAQ Q4",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-4-a%}",
+      "type": "text",
+      "label": "FAQ A4",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-5-q%}",
+      "type": "text",
+      "label": "FAQ Q5",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-5-a%}",
+      "type": "text",
+      "label": "FAQ A5",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-6-q%}",
+      "type": "text",
+      "label": "FAQ Q6",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:nova-faq-6-a%}",
+      "type": "text",
+      "label": "FAQ A6",
+      "page": "/nova"
+    },
+    {
+      "id": "{%part:section-contact-hero%}",
+      "type": "section",
+      "label": "Contact hero",
+      "page": "/contact"
+    },
+    {
+      "id": "{%part:contact-title%}",
+      "type": "text",
+      "label": "Book a Call title",
+      "page": "/contact"
+    },
+    {
+      "id": "{%part:section-contact-form%}",
+      "type": "section",
+      "label": "Multi-step form",
+      "page": "/contact"
+    },
+    {
+      "id": "{%motion:mask-reveal%}",
+      "type": "motion",
+      "label": "Vertical mask wipe (110%\u21920)"
+    },
+    {
+      "id": "{%motion:featured-scroll%}",
+      "type": "motion",
+      "label": "Featured work scroll cascade"
+    },
+    {
+      "id": "{%motion:marquee-details%}",
+      "type": "motion",
+      "label": "Horizontal marquee loop"
+    },
+    {
+      "id": "{%motion:capability-stagger%}",
+      "type": "motion",
+      "label": "Capability section reveals"
+    },
+    {
+      "id": "{%motion:testimonial-swap%}",
+      "type": "motion",
+      "label": "Testimonial fade reveals"
+    },
+    {
+      "id": "{%motion:nova-mega-type%}",
+      "type": "motion",
+      "label": "Mega type mask on program page"
+    },
+    {
+      "id": "{%motion:lenis-scroll%}",
+      "type": "motion",
+      "label": "Optional Lenis-adjacent smooth scroll"
+    },
+    {
+      "id": "{%motion:contact-title%}",
+      "type": "motion",
+      "label": "Contact title mask"
+    }
+  ],
+  "designTokens": {
+    "palette": "paper #F9F8EE / ink #0A0A0A / accent #FE3712 / cream #C9B6A0",
+    "type": "thin display (200) mega titles 100\u2013148px + Georgia/Times body + uppercase labels",
+    "motion": "Lenis + CSS mask/marquee/slide-loop/fade-swap; reconstructed with Framer Motion"
+  },
+  "notes": [
+    "Original site: Next.js + Lenis smooth scroll + heavy CSS keyframe motion + Mux video.",
+    "All original brand assets, client names, and marketing copy removed.",
+    "Case studies are generic project-01..12 slots \u2014 map your portfolio onto them.",
+    "Multi-step contact form is UI-only; wire submit to your backend.",
+    "Ready for AEGNTIC / studio / digital agency branding."
+  ]
+}
