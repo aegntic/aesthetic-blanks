@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --muted: #5c5c5c;
+  --soft: #f4f4f5;
+  --line: #e8e8ea;
+  --accent: #5b5ce2;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-lori: cubic-bezier(0.22, 1, 0.36, 1);
+  --hero: clamp(2.75rem, 7vw, 6rem);
+  --h2: clamp(2rem, 4.5vw, 4.7rem);
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+[data-design="true"] [data-part] {
+  outline: 1px dashed rgba(91, 92, 226, 0.4);
+  outline-offset: 2px;
+}
+[data-design="true"] [data-part]::before {
+  content: attr(data-part);
+  position: absolute;
+  top: 0; left: 0;
+  font-size: 9px;
+  background: #0a0a0a;
+  color: #fff;
+  padding: 1px 4px;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.8;
+  font-family: ui-monospace, monospace;
+}
+
+::selection { background: #5b5ce2; color: #fff; }

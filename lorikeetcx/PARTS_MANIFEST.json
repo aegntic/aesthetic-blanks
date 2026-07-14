@@ -1,0 +1,253 @@
+{
+  "source": "https://www.lorikeetcx.ai/",
+  "builtBy": "Lorikeet (AI Customer Concierge)",
+  "captureMethod": "cloakbrowser full-depth (45 pages) + scroll motion timeline",
+  "generatedAt": "2026-07-15T05:15:24+10:00",
+  "pages": [
+    "/",
+    "/product",
+    "/product/coach",
+    "/pricing",
+    "/integrations",
+    "/customer-stories",
+    "/customer-stories/[slug]",
+    "/about",
+    "/faq",
+    "/get-a-demo"
+  ],
+  "parts": [
+    {
+      "id": "{%part:nav-primary%}",
+      "type": "nav",
+      "label": "Sticky header"
+    },
+    {
+      "id": "{%part:nav-cta%}",
+      "type": "text",
+      "label": "Get a demo CTA"
+    },
+    {
+      "id": "{%part:section-footer%}",
+      "type": "section",
+      "label": "Footer"
+    },
+    {
+      "id": "{%part:section-hero%}",
+      "type": "section",
+      "label": "Hero + chips",
+      "page": "/"
+    },
+    {
+      "id": "{%part:hero-title%}",
+      "type": "text",
+      "label": "Hero H1",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-metrics%}",
+      "type": "section",
+      "label": "Big metrics",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-workflow%}",
+      "type": "section",
+      "label": "Workflow nodes",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-tickets%}",
+      "type": "section",
+      "label": "Resolved tickets",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-product-hero%}",
+      "type": "section",
+      "label": "Product hero",
+      "page": "/product"
+    },
+    {
+      "id": "{%part:section-omnichannel%}",
+      "type": "section",
+      "label": "Channels",
+      "page": "/product"
+    },
+    {
+      "id": "{%part:section-coach-hero%}",
+      "type": "section",
+      "label": "Coach hero",
+      "page": "/product/coach"
+    },
+    {
+      "id": "{%part:section-plans%}",
+      "type": "section",
+      "label": "Pricing plans",
+      "page": "/pricing"
+    },
+    {
+      "id": "{%part:section-int-grid%}",
+      "type": "section",
+      "label": "Integrations",
+      "page": "/integrations"
+    },
+    {
+      "id": "{%part:section-stories-grid%}",
+      "type": "section",
+      "label": "Stories",
+      "page": "/customer-stories"
+    },
+    {
+      "id": "{%part:section-mission%}",
+      "type": "section",
+      "label": "Mission",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:section-faq-list%}",
+      "type": "section",
+      "label": "FAQ",
+      "page": "/faq"
+    },
+    {
+      "id": "{%part:section-demo-form%}",
+      "type": "section",
+      "label": "Demo form",
+      "page": "/get-a-demo"
+    },
+    {
+      "id": "{%part:story-card-1%}",
+      "type": "component",
+      "label": "Story card 1"
+    },
+    {
+      "id": "{%part:cs-1-title%}",
+      "type": "text",
+      "label": "Story 1 title",
+      "page": "/customer-stories/story-01"
+    },
+    {
+      "id": "{%part:story-card-2%}",
+      "type": "component",
+      "label": "Story card 2"
+    },
+    {
+      "id": "{%part:cs-2-title%}",
+      "type": "text",
+      "label": "Story 2 title",
+      "page": "/customer-stories/story-02"
+    },
+    {
+      "id": "{%part:story-card-3%}",
+      "type": "component",
+      "label": "Story card 3"
+    },
+    {
+      "id": "{%part:cs-3-title%}",
+      "type": "text",
+      "label": "Story 3 title",
+      "page": "/customer-stories/story-03"
+    },
+    {
+      "id": "{%part:story-card-4%}",
+      "type": "component",
+      "label": "Story card 4"
+    },
+    {
+      "id": "{%part:cs-4-title%}",
+      "type": "text",
+      "label": "Story 4 title",
+      "page": "/customer-stories/story-04"
+    },
+    {
+      "id": "{%part:story-card-5%}",
+      "type": "component",
+      "label": "Story card 5"
+    },
+    {
+      "id": "{%part:cs-5-title%}",
+      "type": "text",
+      "label": "Story 5 title",
+      "page": "/customer-stories/story-05"
+    },
+    {
+      "id": "{%part:story-card-6%}",
+      "type": "component",
+      "label": "Story card 6"
+    },
+    {
+      "id": "{%part:cs-6-title%}",
+      "type": "text",
+      "label": "Story 6 title",
+      "page": "/customer-stories/story-06"
+    },
+    {
+      "id": "{%part:story-card-7%}",
+      "type": "component",
+      "label": "Story card 7"
+    },
+    {
+      "id": "{%part:cs-7-title%}",
+      "type": "text",
+      "label": "Story 7 title",
+      "page": "/customer-stories/story-07"
+    },
+    {
+      "id": "{%part:story-card-8%}",
+      "type": "component",
+      "label": "Story card 8"
+    },
+    {
+      "id": "{%part:cs-8-title%}",
+      "type": "text",
+      "label": "Story 8 title",
+      "page": "/customer-stories/story-08"
+    },
+    {
+      "id": "{%motion:status-chips%}",
+      "type": "motion",
+      "label": "Floating status chips scroll scale"
+    },
+    {
+      "id": "{%motion:metric-reveal%}",
+      "type": "motion",
+      "label": "Metric cards y-enter"
+    },
+    {
+      "id": "{%motion:workflow-nodes%}",
+      "type": "motion",
+      "label": "Workflow node scale"
+    },
+    {
+      "id": "{%motion:ticket-stack%}",
+      "type": "motion",
+      "label": "Resolved ticket scale stack"
+    },
+    {
+      "id": "{%motion:sticky-nav%}",
+      "type": "motion",
+      "label": "Fixed nav"
+    },
+    {
+      "id": "{%motion:lenis-scroll%}",
+      "type": "motion",
+      "label": "Lenis-style smooth scroll"
+    },
+    {
+      "id": "{%motion:webgl-hero%}",
+      "type": "motion",
+      "label": "Hero canvas stage"
+    }
+  ],
+  "designTokens": {
+    "palette": "paper #FFF / ink #0A0A0A / accent #5B5CE2 / soft #F4F4F5",
+    "type": "hero ~96px, h2 ~75px, metric ~72px",
+    "motion": "Framer+Lenis: status chips scale/opacity, metric y, workflow nodes, ticket stack 0.7\u21921, sticky nav, WebGL stage"
+  },
+  "notes": [
+    "Original site is Framer with Lenis smooth scroll and WebGL hero canvases.",
+    "Outcome-based pricing (credits for resolutions) \u2014 seats not charged.",
+    "All client names and marketing copy stripped; story slots are generic.",
+    "Demo form UI-only until wired."
+  ]
+}
