@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f6f6f6;
+  --fg: #0a0a0a;
+  --muted: #6d6d6d;
+  --soft: #d1d1d1;
+  --panel: #f9f9f9;
+  --border: rgba(0, 0, 0, 0.08);
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-wonder: cubic-bezier(0.2, 0.6, 0.35, 1);
+  --ease-quart: cubic-bezier(0.8, 0, 0.2, 1);
+  --tracking-tight: -0.058em;
+  --navbar-height: clamp(2.625rem, calc(-0.089rem + 4.241vw), 5rem);
+  --text-7xl: clamp(3.5rem, 8.7vw, 7.9rem);
+  --text-8xl: clamp(4rem, 12vw, 15rem);
+  --space-base: clamp(0.75rem, calc(0.464rem + 0.446vw), 1rem);
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --fg: #f6f6f6;
+  --muted: #9a9a9a;
+  --soft: #3a3a3a;
+  --panel: #141414;
+  --border: rgba(255, 255, 255, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Split-type line shell (Wonder Makers style duplicated line reveal) */
+.split-line {
+  overflow: hidden;
+  display: block;
+}
+
+/* Design mode */
+[data-design="true"] [data-part] {
+  outline: 1px dashed rgba(10, 10, 10, 0.28);
+  outline-offset: 2px;
+}
+.dark [data-design="true"] [data-part] {
+  outline-color: rgba(246, 246, 246, 0.3);
+}
+[data-design="true"] [data-part]::before {
+  content: attr(data-part);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 9px;
+  background: #000;
+  color: #fff;
+  padding: 1px 4px;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.75;
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+::selection {
+  background: #0a0a0a;
+  color: #f6f6f6;
+}
+.dark ::selection {
+  background: #f6f6f6;
+  color: #0a0a0a;
+}

@@ -1,0 +1,68 @@
+export const siteGraph = {
+  origin: "https://www.wondermakers.digital",
+  pages: [
+    {
+      id: "home",
+      path: "/",
+      title: "Home / Studio",
+      sections: [
+        "hero-split",
+        "awards-strip",
+        "featured-work",
+        "what-we-build",
+        "services-teaser",
+        "engagement",
+        "edge",
+        "market",
+        "studio-stats",
+        "faq",
+        "footer-collab",
+      ],
+    },
+    {
+      id: "work",
+      path: "/work",
+      title: "Work Index",
+      sections: ["hero", "sectors", "grid", "awards", "clients", "games-cta", "footer"],
+    },
+    {
+      id: "services",
+      path: "/services",
+      title: "Services",
+      sections: ["hero", "what-we-build", "service-list", "process", "engagement", "clients", "testimonials", "footer"],
+    },
+    {
+      id: "about",
+      path: "/about",
+      title: "About",
+      sections: ["hero", "stats", "mission", "team", "values", "careers", "footer"],
+    },
+    {
+      id: "case-study",
+      path: "/case-studies/[slug]",
+      title: "Case Study",
+      sections: ["hero", "meta", "concept", "media", "quote", "outcome", "related", "footer"],
+    },
+  ],
+  shared: {
+    nav: "{%part:nav-primary%}",
+    menu: "{%part:nav-menu%}",
+    theme: "{%part:theme-toggle%}",
+    footer: "{%part:section-footer%}",
+  },
+  motion: [
+    "{%motion:split-headline%}",
+    "{%motion:marquee%}",
+    "{%motion:section-gate%}",
+    "{%motion:hello-in%}",
+    "{%motion:work-card-hover%}",
+    "{%motion:mega-type%}",
+    "{%motion:theme-swap%}",
+    "{%motion:swiper-carousel%}",
+  ],
+  crawlDepth: {
+    primary: ["/", "/work", "/services", "/about"],
+    caseStudies: 22,
+    legal: ["/privacy-policy", "/cookies-policy"],
+  },
+} as const;

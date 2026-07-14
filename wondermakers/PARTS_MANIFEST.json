@@ -1,0 +1,979 @@
+{
+  "source": "https://www.wondermakers.digital/",
+  "builtBy": "Wonder Makers (digital product studio, Prague)",
+  "captureMethod": "cloakbrowser full-depth crawl (29 pages) + scroll motion timeline + CSS keyframe extraction",
+  "generatedAt": "2026-07-15T04:01:07+10:00",
+  "pages": [
+    "/",
+    "/work",
+    "/services",
+    "/about",
+    "/case-studies/[slug]"
+  ],
+  "crawlPaths": [
+    "/",
+    "/work",
+    "/services",
+    "/about",
+    "/case-studies/avax-network",
+    "/case-studies/dimenso-student",
+    "/case-studies/cati",
+    "/case-studies/eppi",
+    "/case-studies/might-and-magic",
+    "/case-studies/psg",
+    "/case-studies/sphere",
+    "/case-studies/avacloud",
+    "/case-studies/my-pet-hooligan",
+    "/case-studies/gods-unchained",
+    "/case-studies/avalanche",
+    "/case-studies/fanlify",
+    "/case-studies/fundsec",
+    "/case-studies/guild-of-guardians",
+    "/case-studies/cosimo",
+    "/case-studies/amgi",
+    "/case-studies/yoga-app",
+    "/case-studies/keymove",
+    "/case-studies/project-eluune",
+    "/case-studies/pulsar",
+    "/case-studies/time-is-ltd",
+    "/case-studies/reluvotion",
+    "/privacy-policy",
+    "/cookies-policy"
+  ],
+  "parts": [
+    {
+      "id": "{%part:nav-primary%}",
+      "type": "nav",
+      "label": "Primary header"
+    },
+    {
+      "id": "{%part:nav-logo%}",
+      "type": "text",
+      "label": "Studio wordmark"
+    },
+    {
+      "id": "{%part:theme-toggle%}",
+      "type": "ui",
+      "label": "Light/Dark toggle"
+    },
+    {
+      "id": "{%part:nav-menu%}",
+      "type": "nav",
+      "label": "Full-screen menu"
+    },
+    {
+      "id": "{%part:section-footer%}",
+      "type": "section",
+      "label": "Collab footer"
+    },
+    {
+      "id": "{%part:footer-form%}",
+      "type": "form",
+      "label": "Contact form"
+    },
+    {
+      "id": "{%part:section-hero%}",
+      "type": "section",
+      "label": "Split hero",
+      "page": "/"
+    },
+    {
+      "id": "{%part:hero-line-1%}",
+      "type": "text",
+      "label": "Hero line 1",
+      "page": "/"
+    },
+    {
+      "id": "{%part:hero-line-2%}",
+      "type": "text",
+      "label": "Hero line 2",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-featured-work%}",
+      "type": "section",
+      "label": "Featured work",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-what-we-build%}",
+      "type": "section",
+      "label": "What we build",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-services-teaser%}",
+      "type": "section",
+      "label": "Services teaser",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-edge%}",
+      "type": "section",
+      "label": "Our edge",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-stats%}",
+      "type": "section",
+      "label": "Studio stats",
+      "page": "/"
+    },
+    {
+      "id": "{%part:section-faq%}",
+      "type": "section",
+      "label": "FAQ",
+      "page": "/"
+    },
+    {
+      "id": "{%part:work-card-1%}",
+      "type": "component",
+      "label": "Work card 1"
+    },
+    {
+      "id": "{%part:work-1-media%}",
+      "type": "image/video",
+      "label": "Work 1 media"
+    },
+    {
+      "id": "{%part:work-1-title%}",
+      "type": "text",
+      "label": "Work 1 title"
+    },
+    {
+      "id": "{%part:work-card-2%}",
+      "type": "component",
+      "label": "Work card 2"
+    },
+    {
+      "id": "{%part:work-2-media%}",
+      "type": "image/video",
+      "label": "Work 2 media"
+    },
+    {
+      "id": "{%part:work-2-title%}",
+      "type": "text",
+      "label": "Work 2 title"
+    },
+    {
+      "id": "{%part:work-card-3%}",
+      "type": "component",
+      "label": "Work card 3"
+    },
+    {
+      "id": "{%part:work-3-media%}",
+      "type": "image/video",
+      "label": "Work 3 media"
+    },
+    {
+      "id": "{%part:work-3-title%}",
+      "type": "text",
+      "label": "Work 3 title"
+    },
+    {
+      "id": "{%part:work-card-4%}",
+      "type": "component",
+      "label": "Work card 4"
+    },
+    {
+      "id": "{%part:work-4-media%}",
+      "type": "image/video",
+      "label": "Work 4 media"
+    },
+    {
+      "id": "{%part:work-4-title%}",
+      "type": "text",
+      "label": "Work 4 title"
+    },
+    {
+      "id": "{%part:work-card-5%}",
+      "type": "component",
+      "label": "Work card 5"
+    },
+    {
+      "id": "{%part:work-5-media%}",
+      "type": "image/video",
+      "label": "Work 5 media"
+    },
+    {
+      "id": "{%part:work-5-title%}",
+      "type": "text",
+      "label": "Work 5 title"
+    },
+    {
+      "id": "{%part:work-card-6%}",
+      "type": "component",
+      "label": "Work card 6"
+    },
+    {
+      "id": "{%part:work-6-media%}",
+      "type": "image/video",
+      "label": "Work 6 media"
+    },
+    {
+      "id": "{%part:work-6-title%}",
+      "type": "text",
+      "label": "Work 6 title"
+    },
+    {
+      "id": "{%part:work-card-7%}",
+      "type": "component",
+      "label": "Work card 7"
+    },
+    {
+      "id": "{%part:work-7-media%}",
+      "type": "image/video",
+      "label": "Work 7 media"
+    },
+    {
+      "id": "{%part:work-7-title%}",
+      "type": "text",
+      "label": "Work 7 title"
+    },
+    {
+      "id": "{%part:work-card-8%}",
+      "type": "component",
+      "label": "Work card 8"
+    },
+    {
+      "id": "{%part:work-8-media%}",
+      "type": "image/video",
+      "label": "Work 8 media"
+    },
+    {
+      "id": "{%part:work-8-title%}",
+      "type": "text",
+      "label": "Work 8 title"
+    },
+    {
+      "id": "{%part:work-card-9%}",
+      "type": "component",
+      "label": "Work card 9"
+    },
+    {
+      "id": "{%part:work-9-media%}",
+      "type": "image/video",
+      "label": "Work 9 media"
+    },
+    {
+      "id": "{%part:work-9-title%}",
+      "type": "text",
+      "label": "Work 9 title"
+    },
+    {
+      "id": "{%part:work-card-10%}",
+      "type": "component",
+      "label": "Work card 10"
+    },
+    {
+      "id": "{%part:work-10-media%}",
+      "type": "image/video",
+      "label": "Work 10 media"
+    },
+    {
+      "id": "{%part:work-10-title%}",
+      "type": "text",
+      "label": "Work 10 title"
+    },
+    {
+      "id": "{%part:work-card-11%}",
+      "type": "component",
+      "label": "Work card 11"
+    },
+    {
+      "id": "{%part:work-11-media%}",
+      "type": "image/video",
+      "label": "Work 11 media"
+    },
+    {
+      "id": "{%part:work-11-title%}",
+      "type": "text",
+      "label": "Work 11 title"
+    },
+    {
+      "id": "{%part:work-card-12%}",
+      "type": "component",
+      "label": "Work card 12"
+    },
+    {
+      "id": "{%part:work-12-media%}",
+      "type": "image/video",
+      "label": "Work 12 media"
+    },
+    {
+      "id": "{%part:work-12-title%}",
+      "type": "text",
+      "label": "Work 12 title"
+    },
+    {
+      "id": "{%part:case-1-hero%}",
+      "type": "section",
+      "label": "Case 1 hero",
+      "page": "/case-studies/project-01"
+    },
+    {
+      "id": "{%part:case-1-body%}",
+      "type": "text",
+      "label": "Case 1 narrative"
+    },
+    {
+      "id": "{%part:case-1-media-hero%}",
+      "type": "image/video",
+      "label": "Case 1 hero media"
+    },
+    {
+      "id": "{%part:case-1-shot-1%}",
+      "type": "image/video",
+      "label": "Case 1 shot 1"
+    },
+    {
+      "id": "{%part:case-1-shot-2%}",
+      "type": "image/video",
+      "label": "Case 1 shot 2"
+    },
+    {
+      "id": "{%part:case-1-shot-3%}",
+      "type": "image/video",
+      "label": "Case 1 shot 3"
+    },
+    {
+      "id": "{%part:case-1-shot-4%}",
+      "type": "image/video",
+      "label": "Case 1 shot 4"
+    },
+    {
+      "id": "{%part:case-1-shot-5%}",
+      "type": "image/video",
+      "label": "Case 1 shot 5"
+    },
+    {
+      "id": "{%part:case-1-shot-6%}",
+      "type": "image/video",
+      "label": "Case 1 shot 6"
+    },
+    {
+      "id": "{%part:case-2-hero%}",
+      "type": "section",
+      "label": "Case 2 hero",
+      "page": "/case-studies/project-02"
+    },
+    {
+      "id": "{%part:case-2-body%}",
+      "type": "text",
+      "label": "Case 2 narrative"
+    },
+    {
+      "id": "{%part:case-2-media-hero%}",
+      "type": "image/video",
+      "label": "Case 2 hero media"
+    },
+    {
+      "id": "{%part:case-2-shot-1%}",
+      "type": "image/video",
+      "label": "Case 2 shot 1"
+    },
+    {
+      "id": "{%part:case-2-shot-2%}",
+      "type": "image/video",
+      "label": "Case 2 shot 2"
+    },
+    {
+      "id": "{%part:case-2-shot-3%}",
+      "type": "image/video",
+      "label": "Case 2 shot 3"
+    },
+    {
+      "id": "{%part:case-2-shot-4%}",
+      "type": "image/video",
+      "label": "Case 2 shot 4"
+    },
+    {
+      "id": "{%part:case-2-shot-5%}",
+      "type": "image/video",
+      "label": "Case 2 shot 5"
+    },
+    {
+      "id": "{%part:case-2-shot-6%}",
+      "type": "image/video",
+      "label": "Case 2 shot 6"
+    },
+    {
+      "id": "{%part:case-3-hero%}",
+      "type": "section",
+      "label": "Case 3 hero",
+      "page": "/case-studies/project-03"
+    },
+    {
+      "id": "{%part:case-3-body%}",
+      "type": "text",
+      "label": "Case 3 narrative"
+    },
+    {
+      "id": "{%part:case-3-media-hero%}",
+      "type": "image/video",
+      "label": "Case 3 hero media"
+    },
+    {
+      "id": "{%part:case-3-shot-1%}",
+      "type": "image/video",
+      "label": "Case 3 shot 1"
+    },
+    {
+      "id": "{%part:case-3-shot-2%}",
+      "type": "image/video",
+      "label": "Case 3 shot 2"
+    },
+    {
+      "id": "{%part:case-3-shot-3%}",
+      "type": "image/video",
+      "label": "Case 3 shot 3"
+    },
+    {
+      "id": "{%part:case-3-shot-4%}",
+      "type": "image/video",
+      "label": "Case 3 shot 4"
+    },
+    {
+      "id": "{%part:case-3-shot-5%}",
+      "type": "image/video",
+      "label": "Case 3 shot 5"
+    },
+    {
+      "id": "{%part:case-3-shot-6%}",
+      "type": "image/video",
+      "label": "Case 3 shot 6"
+    },
+    {
+      "id": "{%part:case-4-hero%}",
+      "type": "section",
+      "label": "Case 4 hero",
+      "page": "/case-studies/project-04"
+    },
+    {
+      "id": "{%part:case-4-body%}",
+      "type": "text",
+      "label": "Case 4 narrative"
+    },
+    {
+      "id": "{%part:case-4-media-hero%}",
+      "type": "image/video",
+      "label": "Case 4 hero media"
+    },
+    {
+      "id": "{%part:case-4-shot-1%}",
+      "type": "image/video",
+      "label": "Case 4 shot 1"
+    },
+    {
+      "id": "{%part:case-4-shot-2%}",
+      "type": "image/video",
+      "label": "Case 4 shot 2"
+    },
+    {
+      "id": "{%part:case-4-shot-3%}",
+      "type": "image/video",
+      "label": "Case 4 shot 3"
+    },
+    {
+      "id": "{%part:case-4-shot-4%}",
+      "type": "image/video",
+      "label": "Case 4 shot 4"
+    },
+    {
+      "id": "{%part:case-4-shot-5%}",
+      "type": "image/video",
+      "label": "Case 4 shot 5"
+    },
+    {
+      "id": "{%part:case-4-shot-6%}",
+      "type": "image/video",
+      "label": "Case 4 shot 6"
+    },
+    {
+      "id": "{%part:case-5-hero%}",
+      "type": "section",
+      "label": "Case 5 hero",
+      "page": "/case-studies/project-05"
+    },
+    {
+      "id": "{%part:case-5-body%}",
+      "type": "text",
+      "label": "Case 5 narrative"
+    },
+    {
+      "id": "{%part:case-5-media-hero%}",
+      "type": "image/video",
+      "label": "Case 5 hero media"
+    },
+    {
+      "id": "{%part:case-5-shot-1%}",
+      "type": "image/video",
+      "label": "Case 5 shot 1"
+    },
+    {
+      "id": "{%part:case-5-shot-2%}",
+      "type": "image/video",
+      "label": "Case 5 shot 2"
+    },
+    {
+      "id": "{%part:case-5-shot-3%}",
+      "type": "image/video",
+      "label": "Case 5 shot 3"
+    },
+    {
+      "id": "{%part:case-5-shot-4%}",
+      "type": "image/video",
+      "label": "Case 5 shot 4"
+    },
+    {
+      "id": "{%part:case-5-shot-5%}",
+      "type": "image/video",
+      "label": "Case 5 shot 5"
+    },
+    {
+      "id": "{%part:case-5-shot-6%}",
+      "type": "image/video",
+      "label": "Case 5 shot 6"
+    },
+    {
+      "id": "{%part:case-6-hero%}",
+      "type": "section",
+      "label": "Case 6 hero",
+      "page": "/case-studies/project-06"
+    },
+    {
+      "id": "{%part:case-6-body%}",
+      "type": "text",
+      "label": "Case 6 narrative"
+    },
+    {
+      "id": "{%part:case-6-media-hero%}",
+      "type": "image/video",
+      "label": "Case 6 hero media"
+    },
+    {
+      "id": "{%part:case-6-shot-1%}",
+      "type": "image/video",
+      "label": "Case 6 shot 1"
+    },
+    {
+      "id": "{%part:case-6-shot-2%}",
+      "type": "image/video",
+      "label": "Case 6 shot 2"
+    },
+    {
+      "id": "{%part:case-6-shot-3%}",
+      "type": "image/video",
+      "label": "Case 6 shot 3"
+    },
+    {
+      "id": "{%part:case-6-shot-4%}",
+      "type": "image/video",
+      "label": "Case 6 shot 4"
+    },
+    {
+      "id": "{%part:case-6-shot-5%}",
+      "type": "image/video",
+      "label": "Case 6 shot 5"
+    },
+    {
+      "id": "{%part:case-6-shot-6%}",
+      "type": "image/video",
+      "label": "Case 6 shot 6"
+    },
+    {
+      "id": "{%part:case-7-hero%}",
+      "type": "section",
+      "label": "Case 7 hero",
+      "page": "/case-studies/project-07"
+    },
+    {
+      "id": "{%part:case-7-body%}",
+      "type": "text",
+      "label": "Case 7 narrative"
+    },
+    {
+      "id": "{%part:case-7-media-hero%}",
+      "type": "image/video",
+      "label": "Case 7 hero media"
+    },
+    {
+      "id": "{%part:case-7-shot-1%}",
+      "type": "image/video",
+      "label": "Case 7 shot 1"
+    },
+    {
+      "id": "{%part:case-7-shot-2%}",
+      "type": "image/video",
+      "label": "Case 7 shot 2"
+    },
+    {
+      "id": "{%part:case-7-shot-3%}",
+      "type": "image/video",
+      "label": "Case 7 shot 3"
+    },
+    {
+      "id": "{%part:case-7-shot-4%}",
+      "type": "image/video",
+      "label": "Case 7 shot 4"
+    },
+    {
+      "id": "{%part:case-7-shot-5%}",
+      "type": "image/video",
+      "label": "Case 7 shot 5"
+    },
+    {
+      "id": "{%part:case-7-shot-6%}",
+      "type": "image/video",
+      "label": "Case 7 shot 6"
+    },
+    {
+      "id": "{%part:case-8-hero%}",
+      "type": "section",
+      "label": "Case 8 hero",
+      "page": "/case-studies/project-08"
+    },
+    {
+      "id": "{%part:case-8-body%}",
+      "type": "text",
+      "label": "Case 8 narrative"
+    },
+    {
+      "id": "{%part:case-8-media-hero%}",
+      "type": "image/video",
+      "label": "Case 8 hero media"
+    },
+    {
+      "id": "{%part:case-8-shot-1%}",
+      "type": "image/video",
+      "label": "Case 8 shot 1"
+    },
+    {
+      "id": "{%part:case-8-shot-2%}",
+      "type": "image/video",
+      "label": "Case 8 shot 2"
+    },
+    {
+      "id": "{%part:case-8-shot-3%}",
+      "type": "image/video",
+      "label": "Case 8 shot 3"
+    },
+    {
+      "id": "{%part:case-8-shot-4%}",
+      "type": "image/video",
+      "label": "Case 8 shot 4"
+    },
+    {
+      "id": "{%part:case-8-shot-5%}",
+      "type": "image/video",
+      "label": "Case 8 shot 5"
+    },
+    {
+      "id": "{%part:case-8-shot-6%}",
+      "type": "image/video",
+      "label": "Case 8 shot 6"
+    },
+    {
+      "id": "{%part:case-9-hero%}",
+      "type": "section",
+      "label": "Case 9 hero",
+      "page": "/case-studies/project-09"
+    },
+    {
+      "id": "{%part:case-9-body%}",
+      "type": "text",
+      "label": "Case 9 narrative"
+    },
+    {
+      "id": "{%part:case-9-media-hero%}",
+      "type": "image/video",
+      "label": "Case 9 hero media"
+    },
+    {
+      "id": "{%part:case-9-shot-1%}",
+      "type": "image/video",
+      "label": "Case 9 shot 1"
+    },
+    {
+      "id": "{%part:case-9-shot-2%}",
+      "type": "image/video",
+      "label": "Case 9 shot 2"
+    },
+    {
+      "id": "{%part:case-9-shot-3%}",
+      "type": "image/video",
+      "label": "Case 9 shot 3"
+    },
+    {
+      "id": "{%part:case-9-shot-4%}",
+      "type": "image/video",
+      "label": "Case 9 shot 4"
+    },
+    {
+      "id": "{%part:case-9-shot-5%}",
+      "type": "image/video",
+      "label": "Case 9 shot 5"
+    },
+    {
+      "id": "{%part:case-9-shot-6%}",
+      "type": "image/video",
+      "label": "Case 9 shot 6"
+    },
+    {
+      "id": "{%part:case-10-hero%}",
+      "type": "section",
+      "label": "Case 10 hero",
+      "page": "/case-studies/project-10"
+    },
+    {
+      "id": "{%part:case-10-body%}",
+      "type": "text",
+      "label": "Case 10 narrative"
+    },
+    {
+      "id": "{%part:case-10-media-hero%}",
+      "type": "image/video",
+      "label": "Case 10 hero media"
+    },
+    {
+      "id": "{%part:case-10-shot-1%}",
+      "type": "image/video",
+      "label": "Case 10 shot 1"
+    },
+    {
+      "id": "{%part:case-10-shot-2%}",
+      "type": "image/video",
+      "label": "Case 10 shot 2"
+    },
+    {
+      "id": "{%part:case-10-shot-3%}",
+      "type": "image/video",
+      "label": "Case 10 shot 3"
+    },
+    {
+      "id": "{%part:case-10-shot-4%}",
+      "type": "image/video",
+      "label": "Case 10 shot 4"
+    },
+    {
+      "id": "{%part:case-10-shot-5%}",
+      "type": "image/video",
+      "label": "Case 10 shot 5"
+    },
+    {
+      "id": "{%part:case-10-shot-6%}",
+      "type": "image/video",
+      "label": "Case 10 shot 6"
+    },
+    {
+      "id": "{%part:case-11-hero%}",
+      "type": "section",
+      "label": "Case 11 hero",
+      "page": "/case-studies/project-11"
+    },
+    {
+      "id": "{%part:case-11-body%}",
+      "type": "text",
+      "label": "Case 11 narrative"
+    },
+    {
+      "id": "{%part:case-11-media-hero%}",
+      "type": "image/video",
+      "label": "Case 11 hero media"
+    },
+    {
+      "id": "{%part:case-11-shot-1%}",
+      "type": "image/video",
+      "label": "Case 11 shot 1"
+    },
+    {
+      "id": "{%part:case-11-shot-2%}",
+      "type": "image/video",
+      "label": "Case 11 shot 2"
+    },
+    {
+      "id": "{%part:case-11-shot-3%}",
+      "type": "image/video",
+      "label": "Case 11 shot 3"
+    },
+    {
+      "id": "{%part:case-11-shot-4%}",
+      "type": "image/video",
+      "label": "Case 11 shot 4"
+    },
+    {
+      "id": "{%part:case-11-shot-5%}",
+      "type": "image/video",
+      "label": "Case 11 shot 5"
+    },
+    {
+      "id": "{%part:case-11-shot-6%}",
+      "type": "image/video",
+      "label": "Case 11 shot 6"
+    },
+    {
+      "id": "{%part:case-12-hero%}",
+      "type": "section",
+      "label": "Case 12 hero",
+      "page": "/case-studies/project-12"
+    },
+    {
+      "id": "{%part:case-12-body%}",
+      "type": "text",
+      "label": "Case 12 narrative"
+    },
+    {
+      "id": "{%part:case-12-media-hero%}",
+      "type": "image/video",
+      "label": "Case 12 hero media"
+    },
+    {
+      "id": "{%part:case-12-shot-1%}",
+      "type": "image/video",
+      "label": "Case 12 shot 1"
+    },
+    {
+      "id": "{%part:case-12-shot-2%}",
+      "type": "image/video",
+      "label": "Case 12 shot 2"
+    },
+    {
+      "id": "{%part:case-12-shot-3%}",
+      "type": "image/video",
+      "label": "Case 12 shot 3"
+    },
+    {
+      "id": "{%part:case-12-shot-4%}",
+      "type": "image/video",
+      "label": "Case 12 shot 4"
+    },
+    {
+      "id": "{%part:case-12-shot-5%}",
+      "type": "image/video",
+      "label": "Case 12 shot 5"
+    },
+    {
+      "id": "{%part:case-12-shot-6%}",
+      "type": "image/video",
+      "label": "Case 12 shot 6"
+    },
+    {
+      "id": "{%part:section-services-hero%}",
+      "type": "section",
+      "label": "Services hero",
+      "page": "/services"
+    },
+    {
+      "id": "{%part:section-pillars%}",
+      "type": "section",
+      "label": "Build pillars",
+      "page": "/services"
+    },
+    {
+      "id": "{%part:section-service-list%}",
+      "type": "section",
+      "label": "Service list",
+      "page": "/services"
+    },
+    {
+      "id": "{%part:section-process%}",
+      "type": "section",
+      "label": "Process",
+      "page": "/services"
+    },
+    {
+      "id": "{%part:section-engagement%}",
+      "type": "section",
+      "label": "Engagement models",
+      "page": "/services"
+    },
+    {
+      "id": "{%part:section-testimonials%}",
+      "type": "section",
+      "label": "Testimonials",
+      "page": "/services"
+    },
+    {
+      "id": "{%part:section-about-hero%}",
+      "type": "section",
+      "label": "About hero",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:section-team%}",
+      "type": "section",
+      "label": "Team",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:section-values%}",
+      "type": "section",
+      "label": "Values",
+      "page": "/about"
+    },
+    {
+      "id": "{%part:section-work-hero%}",
+      "type": "section",
+      "label": "Work hero",
+      "page": "/work"
+    },
+    {
+      "id": "{%part:section-awards%}",
+      "type": "section",
+      "label": "Awards",
+      "page": "/work"
+    },
+    {
+      "id": "{%motion:split-headline%}",
+      "type": "motion",
+      "label": "Split dual-line headline mask"
+    },
+    {
+      "id": "{%motion:marquee%}",
+      "type": "motion",
+      "label": "Horizontal marquee translate3d"
+    },
+    {
+      "id": "{%motion:section-gate%}",
+      "type": "motion",
+      "label": "Scroll-gated section opacity"
+    },
+    {
+      "id": "{%motion:hello-in%}",
+      "type": "motion",
+      "label": "Opacity hello-in enter"
+    },
+    {
+      "id": "{%motion:mega-type%}",
+      "type": "motion",
+      "label": "Mega section title reveal"
+    },
+    {
+      "id": "{%motion:theme-swap%}",
+      "type": "motion",
+      "label": "Light/dark document class"
+    },
+    {
+      "id": "{%motion:swiper-carousel%}",
+      "type": "motion",
+      "label": "Carousel slots (team/testimonials)"
+    },
+    {
+      "id": "{%motion:work-card-hover%}",
+      "type": "motion",
+      "label": "Work media scale hover"
+    }
+  ],
+  "designTokens": {
+    "palette": "paper #F6F6F6 / ink #0A0A0A / muted #6D6D6D + dark mode invert",
+    "type": "codec-pro source \u2192 system display; fluid clamp hero ~126px; mega ~240px; tracking -0.058em",
+    "motion": "split headline masks, marquee, hello-in/out, section opacity gates, Swiper, optional WebGL; ease cubic-bezier(0.2,0.6,0.35,1)"
+  },
+  "notes": [
+    "Original site: Astro + Swiper + fluid type tokens + light/dark + decorative WebGL on home.",
+    "All original brand assets, client names, and marketing copy removed.",
+    "Case studies are generic project-01..12 slots.",
+    "Footer form is UI-only; wire submit to backend when branding.",
+    "Ready for AEGNTIC / digital product studio branding."
+  ]
+}

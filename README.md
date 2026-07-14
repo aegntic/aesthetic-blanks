@@ -17,6 +17,7 @@ aesthetic-blanks/
 ├── README.md
 ├── alitwotimes/          # director portfolio (Exo Ape / Awwwards SOTM style)
 ├── reformcollective/     # multi-page digital design agency (full depth + motion)
+├── wondermakers/         # multi-page digital product studio (split type + light/dark)
 ├── [next-site]/           # future blanks land here as top-level folders
 └── ...
 ```
@@ -65,6 +66,7 @@ npm install && npm run dev
 |--------|--------------------|-------------|
 | `alitwotimes` | https://alitwotimes.com/ (Exo Ape, Awwwards SOTM Aug 2020) | Massive display type, cinematic hero, GSAP-style stagger, multi-rep contact, big impact number |
 | `reformcollective` | https://www.reformcollective.com/ (digital design agency) | Multi-page: work index + case studies + about capabilities + equity program + multi-step contact. Paper/ink + red accent. Lenis + mask/marquee motion DNA. 24-page full-depth capture. |
+| `wondermakers` | https://www.wondermakers.digital/ (digital product studio) | Multi-page: work, services depth, about/team/values, case studies. Split dual-line heroes, mega type, marquee, light/dark, black collab footer. 29-page full-depth capture. |
 
 ---
 
