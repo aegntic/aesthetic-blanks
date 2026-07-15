@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Victor Furuya DNA — multidisciplinary designer portfolio
+  Capture: Vite SPA + Lenis-class smooth scroll + letter-split headlines
+  Tokens from _capture/victorfuruya/nuances.json
+*/
+:root {
+  --base-100: #ffffff;
+  --base-200: #3a3a3a;
+  --base-300: #0f0f0f;
+  --ash: #2f2f2f;
+  --mist: #939393;
+  --font-sans: "Satoshi", system-ui, -apple-system, sans-serif;
+  --hero-margin-top: clamp(0.8rem, 2.5vw, 2rem);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --nav-z: 1000000;
+  --menu-z: 1000001;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--base-300);
+  color: var(--base-100);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Split letter lines (Make It Last / Carve it Into Memory) */
+.split-line {
+  overflow: hidden;
+  display: block;
+}
+
+/* Hero card plate */
+.hero-plate {
+  background: #000;
+  color: #fff;
+  width: min(22rem, 86vw);
+  min-height: min(32rem, 72vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem 1.35rem 1.5rem;
+}
+
+/* Full-bleed media shell */
+.bleed {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Design mode overlays */
+[data-design="true"] [data-part] {
+  outline: 1px dashed rgba(255, 255, 255, 0.35);
+  outline-offset: 2px;
+}
+[data-design="true"] [data-part]::before {
+  content: attr(data-part);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 9px;
+  background: #000;
+  color: #fff;
+  padding: 1px 4px;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.85;
+  font-family: ui-monospace, monospace;
+}

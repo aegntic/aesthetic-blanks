@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Studio uses akicreate pass-2 DNA */
+:root {
+  --color-primary: #ffffff;
+  --color-secondary: #050505;
+  --color-tertiary: #c3c3c3;
+  --color-quaternary: #313131;
+  --color-about: #72a1c8;
+  --tobias-font: Tobias, Georgia, "Times New Roman", serif;
+  --tobias-size: clamp(42px, 43px, 44px);
+  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mint: #7eb8a8;
+}
+
+html,
+body {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  min-height: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(2.5rem, 1fr));
+  column-gap: clamp(1.5rem, 4vw, 3rem);
+  row-gap: 0.65rem;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+  max-width: 28rem;
+  margin-inline: auto;
+}
+.letter-grid .ghost {
+  color: var(--color-tertiary);
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  opacity: 0.55;
+}
+.letter-grid .hot {
+  color: var(--color-quaternary);
+  font-family: var(--tobias-font);
+  font-weight: 400;
+  font-size: var(--tobias-size);
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+.letter-grid.invert .ghost {
+  color: rgba(255, 255, 255, 0.28);
+}
+.letter-grid.invert .hot {
+  color: #fff;
+}
+
+.slider-arrow {
+  width: 2.5rem;
+  height: 1px;
+  background: var(--color-secondary);
+  position: relative;
+  display: block;
+}
+.slider-arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid var(--color-secondary);
+  border-top: 1px solid var(--color-secondary);
+  transform: rotate(45deg);
+}
+.slider-arrow.prev::after {
+  right: auto;
+  left: 0;
+  transform: rotate(-135deg);
+}
+.slider-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: rgba(5, 5, 5, 0.2);
+}
+.slider-dot.active {
+  background: var(--color-secondary);
+}
+
+[contenteditable="true"]:focus {
+  outline: 1px dashed var(--color-about);
+  outline-offset: 4px;
+}
+[data-live="1"] [data-block] {
+  outline: 1px dashed rgba(114, 161, 200, 0.4);
+  outline-offset: 3px;
+}
+[data-live="1"] [data-block]::after {
+  content: attr(data-block);
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 9px;
+  font-family: ui-monospace, monospace;
+  background: #050505;
+  color: #72a1c8;
+  padding: 1px 4px;
+  opacity: 0;
+  pointer-events: none;
+}
+[data-live="1"] [data-block]:hover::after {
+  opacity: 1;
+}
+
+.advantage-card[data-on="1"] {
+  background: #72a1c8;
+  color: #050505;
+}

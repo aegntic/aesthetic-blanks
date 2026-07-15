@@ -1,0 +1,36 @@
+{
+  "source": "https://victorfuruya.com/",
+  "builtBy": "Victor Furuya (multidisciplinary designer portfolio)",
+  "captureMethod": "cloakbrowser full-depth (3 pages) + nuances.json (CSS vars, Satoshi, Lenis shell, letter-split, scroll samples, image inventory)",
+  "generatedAt": "2026-07-16T03:00:00+10:00",
+  "qualityBar": "reformcollective / wondermakers class",
+  "stack": "Vite SPA + Satoshi + Lenis-class scroll + letter-split headlines",
+  "pages": ["/", "/works", "/about"],
+  "crawlPaths": ["/", "/works", "/about"],
+  "designTokens": {
+    "base100": "#ffffff",
+    "base200": "#3a3a3a",
+    "base300": "#0f0f0f",
+    "ash": "#2f2f2f",
+    "font": "Satoshi"
+  },
+  "motion": [
+    "{%motion:hero-scale%}",
+    "{%motion:letter-split-hero%}",
+    "{%motion:menu-mega%}",
+    "{%motion:manifesto-lines%}",
+    "{%motion:work-slide-N%}",
+    "{%motion:carve-left%}",
+    "{%motion:carve-right%}",
+    "{%motion:focus-list%}",
+    "{%motion:lenis-scroll%}"
+  ],
+  "imageStylePrompts": {
+    "hero": "B&W fashion/portrait full-bleed",
+    "manifesto": "vertical editorial 3:4",
+    "work": "full-bleed lifestyle/brand cinematic",
+    "about": "centered B&W studio portrait",
+    "footer": "wide atmospheric curtain"
+  },
+  "notes": "Every PartImage carries a style-of-image prompt (role + photographic grade). Hero scale approximates captured 1.5→1 scroll. Letter-split is dual-line overflow wipe, not per-glyph GSAP. Full-screen menu uses mega type ~96px. Strip source personal name and client brands."
+}

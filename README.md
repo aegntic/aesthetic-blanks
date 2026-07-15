@@ -15,6 +15,9 @@ Each template is a complete, self-contained Next.js App Router project that:
 ```
 aesthetic-blanks/
 ├── README.md
+├── studio/               # Aki-class catalog + multi-page live edit (export $$)
+├── akicreate/            # graphic portfolio (letter-matrix / Awwwards nominee class)
+├── victorfuruya/         # cinematic multidisciplinary designer (Satoshi / Lenis / letter-split)
 ├── alitwotimes/          # director portfolio (Exo Ape / Awwwards SOTM style)
 ├── reformcollective/     # multi-page digital design agency (full depth + motion)
 ├── wondermakers/         # multi-page digital product studio (split type + light/dark)
@@ -61,10 +64,22 @@ npm install && npm run dev
 - `prompts/` — human-readable collection of the text prompts
 - Design tokens live in `lib/design-tokens.ts`
 
+## Studio (catalog + live edit)
+
+```bash
+cd studio && npm install --include=dev && npm run dev
+# http://localhost:3410 — grid · multi-page edit · export gated
+```
+
+Live edit free; JSON export requires unlock on `/pricing` (demo unlock; Stripe later).
+
 ## Current blanks
 
 | Folder | Source inspiration | Style notes |
 |--------|--------------------|-------------|
+| `studio` | akicreate DNA (product) | Letter-matrix catalog, advantages band, paired blanks, live edit, paid export |
+| `akicreate` | https://akicreate.com/ (Awwwards nominee; Webflow+GSAP) | **Pass 3 quality rebuild**: Tobias 43px letter matrix `#313131`, dual rails, works **slider** (3 dots/arrows), about `#72a1c8`, black talk footer, 6 case 01/02/03, full PartText/PartImage kit |
+| `victorfuruya` | https://victorfuruya.com/ (multidisciplinary designer) | Satoshi + Lenis shell; B&W hero plate; letter-split; full-bleed work slides; carve-into-memory triad; **image style prompts** on every PartImage; mega menu |
 | `alitwotimes` | https://alitwotimes.com/ (Exo Ape, Awwwards SOTM Aug 2020) | Massive display type, cinematic hero, GSAP-style stagger, multi-rep contact, big impact number |
 | `reformcollective` | https://www.reformcollective.com/ (digital design agency) | Multi-page: work index + case studies + about capabilities + equity program + multi-step contact. Paper/ink + red accent. Lenis + mask/marquee motion DNA. 24-page full-depth capture. |
 | `wondermakers` | https://www.wondermakers.digital/ (digital product studio) | Multi-page: work, services depth, about/team/values, case studies. Split dual-line heroes, mega type, marquee, light/dark, black collab footer. 29-page full-depth capture. |

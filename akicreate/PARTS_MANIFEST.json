@@ -1,0 +1,46 @@
+{
+  "source": "https://akicreate.com/",
+  "builtBy": "Aki (graphic designer portfolio, Awwwards nominee)",
+  "captureMethod": "cloakbrowser full-depth crawl (8 pages) + nuances pass (CSS vars, fonts, GSAP/Webflow stack, scroll samples)",
+  "generatedAt": "2026-07-15T20:30:00+10:00",
+  "pass": 3,
+  "qualityBar": "reformcollective / wondermakers class",
+  "stack": "Webflow + GSAP 3.12 + ScrollTrigger + jQuery",
+  "pages": ["/", "/about", "/work", "/work/[slug]"],
+  "crawlPaths": [
+    "/",
+    "/about",
+    "/underart",
+    "/fine-syrup",
+    "/ajenda",
+    "/eggplant-hours",
+    "/jazz-craft",
+    "/stm-re-route"
+  ],
+  "designTokens": {
+    "primary": "#ffffff",
+    "secondary": "#050505",
+    "tertiary": "#c3c3c3",
+    "quaternary": "#313131",
+    "aboutBg": "#72a1c8",
+    "body": "PP Neue Montreal 16/24",
+    "letter": "Tobias clamp(42px,43px,44px)"
+  },
+  "motion": [
+    "{%motion:letter-grid%}",
+    "{%motion:mask-reveal%}",
+    "{%motion:works-slider%}",
+    "{%motion:section-fade%}",
+    "{%motion:talk-grid%}"
+  ],
+  "parts": [
+    "{%part:nav-primary%}",
+    "{%part:letter-grid%}",
+    "{%part:edge-rails%}",
+    "{%part:works-slider%}",
+    "{%part:section-footer%}",
+    "{%part:about-band%}",
+    "{%part:case-meta%}"
+  ],
+  "notes": "Letter matrix Tobias #313131; works are Webflow slider (3 pairs, dots, hairline arrows); about sky #72a1c8; black invert talk footer LET'S/TALK; case studies use 01/02/03 tinted dual media. Do not claim pixel-perfect ScrollTrigger timelines."
+}

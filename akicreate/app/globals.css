@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Aki Create DNA — pass rebuilt to reform/wonder quality bar.
+  Capture: Webflow + GSAP 3.12 + ScrollTrigger + jQuery
+  Tokens from _capture/akicreate/nuances.json
+*/
+:root {
+  --color-primary: #ffffff;
+  --color-secondary: #050505;
+  --color-tertiary: #c3c3c3;
+  --color-quaternary: #313131;
+  --color-about: #72a1c8;
+  --color-mint: #7eb8a8;
+  --font-sans: "PP Neue Montreal", Arial, system-ui, sans-serif;
+  --font-display: Tobias, Georgia, "Times New Roman", serif;
+  --font-mono: "Red Hat Mono", ui-monospace, monospace;
+  --tobias-size: clamp(42px, 43px, 44px);
+  --nav-h: 3.25rem;
+  --gutter: 17px;
+  --ease-aki: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration: 0.85s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Letter matrix — Tobias hot @ ~43px / #313131 */
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(2.75rem, 1fr));
+  column-gap: clamp(1.75rem, 4.5vw, 3.25rem);
+  row-gap: 0.7rem;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+  max-width: 30rem;
+  margin-inline: auto;
+}
+
+.letter-grid .ghost {
+  color: var(--color-tertiary);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.72rem;
+  letter-spacing: 0.38em;
+  opacity: 0.65;
+}
+
+.letter-grid .hot {
+  color: var(--color-quaternary);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--tobias-size);
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.letter-grid.invert .ghost {
+  color: rgba(255, 255, 255, 0.28);
+}
+.letter-grid.invert .hot {
+  color: #ffffff;
+}
+
+/* Webflow-style hairline arrows + slider dots */
+.slider-arrow {
+  width: 2.75rem;
+  height: 1px;
+  background: var(--color-secondary);
+  position: relative;
+  display: block;
+}
+.slider-arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid var(--color-secondary);
+  border-top: 1px solid var(--color-secondary);
+  transform: rotate(45deg);
+}
+.slider-arrow.prev::after {
+  right: auto;
+  left: 0;
+  transform: rotate(-135deg);
+}
+.slider-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: rgba(5, 5, 5, 0.18);
+  transition: background-color 0.1s;
+}
+.slider-dot.active {
+  background: var(--color-secondary);
+}
+
+/* Mask reveal utility (GSAP-adjacent) */
+.mask-reveal {
+  overflow: hidden;
+  display: block;
+}
+
+/* Design mode */
+[data-design="true"] [data-part] {
+  outline: 1px dashed rgba(114, 161, 200, 0.45);
+  outline-offset: 2px;
+}
+[data-design="true"] [data-part]::before {
+  content: attr(data-part);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 9px;
+  background: #050505;
+  color: #72a1c8;
+  padding: 1px 4px;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.8;
+  font-family: var(--font-mono);
+}

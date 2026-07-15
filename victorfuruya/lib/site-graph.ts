@@ -1,0 +1,61 @@
+export const siteGraph = {
+  origin: "https://victorfuruya.com",
+  pages: [
+    {
+      id: "home",
+      path: "/",
+      title: "Home",
+      sections: [
+        "nav",
+        "hero-bleed-portrait",
+        "hero-plate-make-it-last",
+        "scroll-cue",
+        "manifesto-sticky-previews",
+        "who-what-drives",
+        "work-slider-teaser",
+        "carve-into-memory",
+        "areas-of-focus",
+        "core-values",
+        "footer-bleed",
+      ],
+    },
+    {
+      id: "works",
+      path: "/works",
+      title: "Works",
+      sections: ["nav", "work-full-bleed-slides", "footer"],
+    },
+    {
+      id: "about",
+      path: "/about",
+      title: "About",
+      sections: [
+        "nav",
+        "carve-memory-hero",
+        "manifesto-lines",
+        "bio",
+        "areas-of-focus",
+        "core-values",
+        "footer-bleed",
+      ],
+    },
+  ],
+  shared: {
+    nav: "{%part:nav-primary%}",
+    menu: "{%part:nav-menu-overlay%}",
+    footer: "{%part:section-footer%}",
+  },
+  motion: [
+    "{%motion:hero-scale%}",
+    "{%motion:letter-split%}",
+    "{%motion:menu-mega%}",
+    "{%motion:manifesto-sticky%}",
+    "{%motion:work-slide%}",
+    "{%motion:fade%}",
+    "{%motion:stagger%}",
+    "{%motion:lenis-scroll%}",
+  ],
+  crawlDepth: {
+    primary: ["/", "/works", "/about"],
+  },
+} as const;
