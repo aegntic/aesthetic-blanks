@@ -121,7 +121,7 @@ Return only the line.`}
 Original nuance: "Designed & built in [city]" or "A template by [studio]" — short.
 Chunk size: 4–8 words.
 Return only the line.`}
-              previewText="A template, ready tobrand"
+              previewText="A template, ready to brand"
             />
           </div>
         </div>

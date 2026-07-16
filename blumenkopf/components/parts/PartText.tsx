@@ -29,7 +29,7 @@ export function PartText({
       <Comp
         className={clsx(className)}
         style={style}
-        href={href}
+        {...(Tag === "a" && href ? { href } : {})}
         data-part-id={partId}
       >
         {previewText}

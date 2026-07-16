@@ -3,16 +3,22 @@
 import { useEffect } from "react";
 
 /**
- * Lightweight Lenis-adjacent smooth scroll.
- * Original site uses Lenis; we approximate without the dependency so the blank stays portable.
- * Agents can swap this for real `lenis` when branding.
+ * Lightweight CSS-class-only smooth scroll approximation.
+ * The original site had no Lenis/GSAP (Nuxt/Vue + CSS transitions).
+ * This adds the `lenis` class for Tailwind utilities and an opt-in RAF easing
+ * loop (disabled by default). Agents can replace the body with real `lenis`
+ * when branding.
  */
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.classList.add("lenis");
     // Prefer reduced-motion users skip artificial easing.
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    if (reduce) {
+      return () => {
+        document.documentElement.classList.remove("lenis");
+      };
+    }
 
     let raf = 0;
     let current = window.scrollY;
@@ -22,6 +28,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     const onWheel = (e: WheelEvent) => {
       // Only soft-smooth modest deltas; leave trackpads mostly native.
       if (Math.abs(e.deltaY) < 4) return;
+      e.preventDefault();
       target = Math.max(
         0,
         Math.min(
@@ -50,7 +57,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     // Disabled by default for predictability in templates; enable with data-smooth="1" on <html>
     const enabled = document.documentElement.dataset.smooth === "1";
     if (enabled) {
-      window.addEventListener("wheel", onWheel, { passive: true });
+      window.addEventListener("wheel", onWheel, { passive: false });
     }
 
     return () => {

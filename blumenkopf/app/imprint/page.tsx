@@ -45,7 +45,7 @@ Return only the heading.`}
                 id: "publisher",
                 label: "publisher",
                 prompt: `Write the publisher block for [USER_PROJECT] imprint.
-Original nuance: legal entity — name, address, city, country. EuropeanImpressum style.
+Original nuance: legal entity — name, address, city, country. European Impressum style.
 Chunk size: 4–8 lines / 30–60 words.
 Tone: formal small-print.
 Return only the block.`,

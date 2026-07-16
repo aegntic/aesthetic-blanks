@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import clsx from "clsx";
 
 interface Props {
@@ -20,11 +20,27 @@ export function PartImage({
   accept = "image/*,video/*",
 }: Props) {
   const [src, setSrc] = useState<string | null>(null);
+  const [fileType, setFileType] = useState<string>("");
   const [dragging, setDragging] = useState(false);
+  const objectUrlRef = useRef<string | null>(null);
 
   const onFile = useCallback((file: File) => {
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current);
+    }
     const url = URL.createObjectURL(file);
+    objectUrlRef.current = url;
     setSrc(url);
+    setFileType(file.type);
+  }, []);
+
+  const onReset = useCallback(() => {
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current);
+      objectUrlRef.current = null;
+    }
+    setSrc(null);
+    setFileType("");
   }, []);
 
   return (
@@ -45,12 +61,14 @@ export function PartImage({
         e.preventDefault();
         setDragging(false);
         const f = e.dataTransfer.files?.[0];
-        if (f) onFile(f);
+        if (f) {
+          onFile(f);
+        }
       }}
     >
       {src ? (
         <>
-          {accept.includes("video") && src.includes("blob") ? (
+          {fileType.startsWith("video/") ? (
             <video
               src={src}
               className="w-full h-full object-cover"
@@ -76,7 +94,7 @@ export function PartImage({
             </label>
             <button
               type="button"
-              onClick={() => setSrc(null)}
+              onClick={onReset}
               className="bg-zinc-800 text-paper text-xs px-4 py-2 rounded"
             >
               Reset

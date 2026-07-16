@@ -66,5 +66,6 @@ export function getWork(slug: string): WorkItem | undefined {
 
 export function nextWork(slug: string): WorkItem {
   const i = WORK.findIndex((w) => w.slug === slug);
+  if (i === -1) throw new Error(`nextWork: slug "${slug}" not found in WORK`);
   return WORK[(i + 1) % WORK.length]!;
 }

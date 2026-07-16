@@ -9,10 +9,9 @@ type MotionType =
   | "fade"
   | "slide"
   | "marquee"
-  | "parallax"
   | "custom";
 
-type Trigger = "load" | "inView" | "scroll" | "hover";
+type Trigger = "load" | "inView";
 
 interface Props {
   partId: string;
@@ -29,11 +28,12 @@ interface Props {
 const easeReform = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Reverse-engineered Reform Collective motion:
+ * Blumenkopf motion presets:
  * - mask: vertical wipe (CSS translateY 110%→0) matching captured keyframes
- * - marquee: infinite horizontal strip (details club motif)
+ * - marquee: infinite horizontal strip (orange buy-this-website strip)
  * - stagger: out-expo child cascade
  * - fade: opacity reveal
+ * - slide: horizontal opacity reveal
  */
 export function PartMotion({
   partId,

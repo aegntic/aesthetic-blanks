@@ -28,7 +28,7 @@ export default function HomePage() {
               as="p"
               className="text-xs uppercase tracking-label text-muted mb-6"
               prompt={`Write a small establishment mark for [USER_PROJECT] hero.
-Original nuance: "EST. [year] — NO STUDIO." class — a self-defining label, slightlycontradictory ("no studio" / "with everything you need").
+Original nuance: "EST. [year] — NO STUDIO." class — a self-defining label, slightly contradictory ("no studio" / "with everything you need").
 Chunk size: 3–7 words.
 Tone: archival stamp, dry wit.
 Return only the mark.`}
