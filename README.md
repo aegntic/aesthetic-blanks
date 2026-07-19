@@ -22,6 +22,7 @@ aesthetic-blanks/
 ├── reformcollective/     # multi-page digital design agency (full depth + motion)
 ├── wondermakers/         # multi-page digital product studio (split type + light/dark)
 ├── lorikeetcx/           # multi-page AI CX concierge (Framer/Lenis scroll DNA)
+├── blumenkopf/           # editorial design-studio (light, 3px Swiss-line grid, oversized wordmark, orange marquee)
 ├── [next-site]/           # future blanks land here as top-level folders
 └── ...
 ```

@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Blumenkopf tokens (captured cssVars: paper #e8ebec / ink #000 / 3px lines) ─── */
+:root {
+  --bg: #e8ebec;
+  --fg: #000000;
+  --muted: #5c5c5c;
+  --accent: #e67e22;
+  --olive: #7d8a74;
+  --paper: #e8ebec;
+  --ink: #000000;
+  --line: #000000;
+  --font-sans: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-gate: cubic-bezier(0.33, 1, 0.68, 1);
+  --stagger: 0.06s;
+  --duration: 0.6s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ─── Editorial line system: 3px black dividers everywhere ─── */
+.border-line-divider {
+  border-color: var(--line);
+}
+
+/* Scroll-gated reveal (captured div opacity 0→0.2→1 on enter) */
+.gate {
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease-gate), transform var(--duration) var(--ease-gate);
+}
+.gate.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Masked wordmark reveal */
+.mask-reveal {
+  overflow: hidden;
+  display: block;
+}
+.mask-reveal > * {
+  display: block;
+  transform: translateY(110%);
+  transition: transform var(--duration) var(--ease-expo);
+}
+.mask-reveal.is-in > * {
+  transform: translateY(0);
+}
+
+/* Orange "buy this website" marquee */
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* Design-mode helpers (?design=1 → data-design="true" on <html>) */
+[data-design="true"] [data-part] {
+  outline: 1px dashed rgba(230, 126, 34, 0.45);
+  outline-offset: 2px;
+}
+[data-design="true"] [data-part]::before {
+  content: attr(data-part);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 9px;
+  background: #000;
+  color: #e67e22;
+  padding: 1px 4px;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.8;
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+::selection {
+  background: #000;
+  color: #e8ebec;
+}

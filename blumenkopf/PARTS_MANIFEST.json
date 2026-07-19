@@ -1,0 +1,57 @@
+{
+  "source": "https://blumenkopf.spatzek.studio/about",
+  "builtBy": "Blumenkopf — editorial design-studio template (self-aware; in-page 'buy this website' motif)",
+  "captureMethod": "CloakBrowser full-depth crawl (10 pages) + deep_nuance pass-2 (cssVars, fonts, animEls) + scroll motion timeline",
+  "generatedAt": "2026-07-16",
+  "slug": "blumenkopf",
+  "archetype": "editorial design-studio — light mode, Swiss-line-divided grid, oversized mixed-case wordmark",
+  "designTokens": {
+    "colors": {
+      "paper": "#E8EBEC",
+      "ink": "#000000",
+      "line": "#000000 (3px solid dividers)",
+      "accent": "#E67E22 (orange — marquee banner)",
+      "olive": "#7D8A74 (hero photo backdrop)",
+      "clay": "#C75D4B",
+      "muted": "#5C5C5C"
+    },
+    "fonts": {
+      "sans": {
+        "original": "Suisse Intl (neo-grotesque)",
+        "fallback": "Inter Tight (next/font/google)"
+      },
+      "serif": {
+        "original": "SangBleu OG (high-contrast transitional)",
+        "fallback": "Newsreader (next/font/google)"
+      }
+    },
+    "line": "3px solid #000 — the primary structural motif (section dividers, card meta, grid gutters)"
+  },
+  "motion": {
+    "stack": "CSS transitions + Vue <transition> on the source; reconstructed here as framer-motion + Tailwind keyframes (no GSAP, no Lenis)",
+    "presets": {
+      "gate": "scroll-gated opacity+Y reveal (~0.6s ease-out) — captured divs op 0→0.2→1",
+      "carouselFade": "Hooper slide opacity cross-fade 0.5s — work/case media",
+      "marquee": "orange 'buy this website' banner, horizontal infinite ~22s linear",
+      "lineGrow": "3px divider scaleX grow on enter",
+      "wordmarkReveal": "oversized lowercase wordmark masked wipe-in"
+    }
+  },
+  "routes": ["/home", "/about", "/work", "/work/[slug]", "/imprint"],
+  "caseSlots": 6,
+  "partKit": [
+    "PartText",
+    "PartImage",
+    "PartMotion",
+    "PartSection",
+    "PartNav",
+    "PartFooter",
+    "WorkCard"
+  ],
+  "notes": [
+    "Original is a Nuxt/Vue site; this blank re-expresses it as Next.js App Router.",
+    "Every text node carries an agent-ready prompt preserving chunk size, tone and avoid-list — see prompts/README.md.",
+    "All media are PartImage drag-drop upload zones; no source assets are shipped.",
+    "The orange marquee ('buy this website') is the signature meta motif — the template advertises itself; rebrand freely."
+  ]
+}
