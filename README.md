@@ -23,6 +23,7 @@ aesthetic-blanks/
 ├── wondermakers/         # multi-page digital product studio (split type + light/dark)
 ├── lorikeetcx/           # multi-page AI CX concierge (Framer/Lenis scroll DNA)
 ├── blumenkopf/           # editorial design-studio (light, 3px Swiss-line grid, oversized wordmark, orange marquee)
+├── bleibtgleich/         # single-designer portfolio (warm paper · lowercase mega · truth word-stagger · 12-col grid overlay · project hover image-storm)
 ├── [next-site]/           # future blanks land here as top-level folders
 └── ...
 ```
@@ -85,6 +86,7 @@ Live edit free; JSON export requires unlock on `/pricing` (demo unlock; Stripe l
 | `reformcollective` | https://www.reformcollective.com/ (digital design agency) | Multi-page: work index + case studies + about capabilities + equity program + multi-step contact. Paper/ink + red accent. Lenis + mask/marquee motion DNA. 24-page full-depth capture. |
 | `wondermakers` | https://www.wondermakers.digital/ (digital product studio) | Multi-page: work, services depth, about/team/values, case studies. Split dual-line heroes, mega type, marquee, light/dark, black collab footer. 29-page full-depth capture. |
 | `lorikeetcx` | https://www.lorikeetcx.ai/ (AI customer concierge) | Multi-page: product/coach, outcome pricing, integrations, stories, demo. Framer+Lenis scroll DNA (status chips, metrics, workflow nodes, ticket stacks). 45-page capture. |
+| `bleibtgleich` | https://www.bleibtgleich.com/ (single-designer portfolio; Kyiv) | Webflow+GSAP+Three.js+Lenis. Warm paper · lowercase ultra-tight mega type · thin rule dividers · 12-col grid overlay toggle · "truth" word-stagger reveals · project hover image-storm · WebGL-distort plate (documented) · "made with hate" footer. 2 routes (`/`, `/about`). Snapshot HTML-supplied (webarchive outage + live domain parked). |
 
 ---
 
