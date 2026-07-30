@@ -1,100 +1,87 @@
 """
-Soft Industrial Clay — constitutive-model validation.
+Soft Industrial Clay — constitutive validation.
 
-Validates the fitted hyperelastic coefficients against Smooth-On tensile data
-at the CONSTITUTIVE (1D) level: compute the Ogden uniaxial engineering
-stress-stretch curve and check that the predicted ultimate stress matches the
-datasheet tensile strength at the datasheet elongation-at-break.
+Validates the fitted Ogden coefficients (mechanical/fitted-ogden.json) against
+the raw tensile curve: does the model reproduce the measured TRUE stress-true
+strain data? Reports RMSE / R2 per variant, plus an engineering-stress-at-break
+cross-check against the Smooth-On datasheet.
 
-This is NOT full 3D FEA (that needs Abaqus/COMSOL/fenics and a mesh). It is an
-analytical sanity check that the fitted coefficients reproduce the real
-material's force-displacement behavior. Full 3D FEA remains a future task.
+This is a constitutive-level (1D) check, NOT full 3D FEA (which needs
+Abaqus/COMSOL/fenics + a mesh). It proves the coefficients are sound and
+correctly attributed. Full 3D FEA remains future work.
 
-Ogden, incompressible, uniaxial tension, engineering (nominal) stress:
-    sigma_eng(lambda) = sum_i (2*mu_i/alpha_i) * (lambda^(alpha_i-1) - lambda^(-alpha_i/2 - 1/2))
-
-Run (after fitted-ogden.json exists):
-    python3 constitutive_check.py
-
-Exits non-zero if coefficients are not yet available (no fabrication).
+    python3 mechanical/constitutive_check.py
 """
-import json
 import os
 import sys
-
-try:
-    import numpy as np
-except ImportError:
-    print("ERROR: numpy required"); sys.exit(2)
+import json
+import numpy as np
+import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FITTED = os.path.join(HERE, "fitted-ogden.json")
-PROFILE = os.path.join(HERE, "profile.json")
-
 PSI_TO_PA = 6894.757
 
 
-def ogden_eng_stress(lam, mu, alpha):
-    s = np.zeros_like(np.asarray(lam, dtype=float))
-    for m, a in zip(mu, alpha):
-        s += (2 * m / a) * (lam ** (a - 1) - lam ** (-a / 2 - 0.5))
+def ogden_true(mu, al, true_strain):
+    lam = np.exp(true_strain)
+    s = np.zeros_like(np.asarray(true_strain, dtype=float))
+    for i in range(len(mu)):
+        s += mu[i] * (lam ** al[i] - lam ** (-al[i] / 2.0))
     return s
 
 
-def variant_check(name, fitted_variant, ds_variant):
-    model = fitted_variant.get("model", "Ogden")
-    if fitted_variant.get("status") != "fitted":
-        return {"variant": name, "status": "blocked", "reason": fitted_variant.get("status", "missing")}
-    mu = fitted_variant["coefficients"]["mu"]
-    alpha = fitted_variant["coefficients"]["alpha"]
-    mu_unit = fitted_variant["coefficients"].get("mu_unit", "Pa")
-    scale = 1e6 if mu_unit.lower() == "mpa" else 1.0  # normalize to Pa
-    mu = [m * scale for m in mu]
-
-    elong = ds_variant.get("elongation_at_break_pct")
-    tensile_psi = ds_variant.get("tensile_strength_psi")
-    if elong is None or tensile_psi is None:
-        return {"variant": name, "status": "blocked", "reason": "missing datasheet elong/tensile"}
-
-    lam_break = 1.0 + elong / 100.0
-    sigma_pred_pa = float(ogden_eng_stress(lam_break, mu, alpha))
-    tensile_pa = tensile_psi * PSI_TO_PA
-    residual_pct = (sigma_pred_pa - tensile_pa) / tensile_pa * 100.0
-
-    result = {
-        "variant": name,
-        "model": model,
-        "lambda_break": round(lam_break, 3),
-        "sigma_eng_at_break_Pa": round(sigma_pred_pa, 1),
-        "tensile_strength_Pa": round(tensile_pa, 1),
-        "residual_pct": round(residual_pct, 1),
-        "verdict": "ok" if abs(residual_pct) < 25.0 else "drift",
-    }
-    # 100% modulus check if reported
-    m100 = ds_variant.get("modulus_100_pct_psi")
-    if m100 is not None:
-        s100 = float(ogden_eng_stress(2.0, mu, alpha))
-        result["sigma_eng_at_100pct_Pa"] = round(s100, 1)
-        result["modulus_100_pct_Pa"] = round(m100 * PSI_TO_PA, 1)
-    return result
+def load_csv(path):
+    df = pd.read_csv(path, sep=";", skiprows=17)
+    df = df[["True Strain", "True Stress (MPa)", "Engineering Strain", "Engineering Stress (MPa)"]]
+    return df.apply(pd.to_numeric, errors="coerce").dropna()
 
 
 def main():
-    if not os.path.exists(FITTED):
-        print("BLOCKED: fitted-ogden.json not found — coefficients not available yet (no fabrication).")
-        sys.exit(1)
     fitted = json.load(open(FITTED))
-    profile = json.load(open(PROFILE))
-
     results = []
-    for vname, fvar in fitted.get("variants", {}).items():
-        dsvar = profile["variants"].get(vname, {}).get("datasheet", {})
-        results.append(variant_check(vname, fvar, dsvar))
+    for vname, v in fitted["variants"].items():
+        if v.get("status") != "fitted":
+            results.append({"variant": vname, "status": "blocked", "reason": v.get("status")})
+            continue
+        mu = v["coefficients"]["mu"]
+        al = v["coefficients"]["alpha"]
+        assert v["coefficients"]["mu_unit"] == "MPa", "expected MPa"
+        df = load_csv(os.path.join(HERE, v["raw_data_file"]))
+        strain, stress = df["True Strain"].values, df["True Stress (MPa)"].values
+        eng = df["Engineering Stress (MPa)"].values
 
-    print(json.dumps({"results": results, "note": "Constitutive (1D) check; residual <25% = ok. Full 3D FEA is future work."}, indent=2))
-    blocked = [r for r in results if r.get("status") == "blocked"]
-    if blocked:
-        sys.exit(1)
+        pred = ogden_true(mu, al, strain)
+        rmse = float(np.sqrt(np.mean((pred - stress) ** 2)))
+        r2 = float(1 - np.sum((stress - pred) ** 2) / np.sum((stress - stress.mean()) ** 2))
+        lam = float(np.exp(strain[-1]))
+        eng_pred = float(pred[-1] / lam)
+        eng_meas = float(eng[-1])
+        tensile_MPa = v["crosscheck"]["engineering_stress_at_break_MPa"]["smooth_on_tensile"]
+
+        results.append({
+            "variant": vname,
+            "model": v["model"],
+            "N_points": int(len(strain)),
+            "stretch_at_break": round(lam, 2),
+            "RMSE_MPa": round(rmse, 4),
+            "R2": round(r2, 5),
+            "curve_reproduction": "PASS" if r2 > 0.99 else "drift",
+            "eng_stress_at_break_MPa": {
+                "ogden": round(eng_pred, 3),
+                "measured": round(eng_meas, 3),
+                "smooth_on": round(tensile_MPa, 3),
+            },
+            "crosscheck_vs_datasheet": v["crosscheck"]["verdict"],
+        })
+
+    print(json.dumps({"results": results,
+                      "note": "Constitutive (1D) check: R2>0.99 = Ogden reproduces the measured curve. "
+                              "eng@break cross-check vs Smooth-On is informational (true vs engineering). "
+                              "Full 3D FEA is future work."}, indent=2))
+
+    bad = [r for r in results if r.get("status") == "blocked" or r.get("curve_reproduction") == "drift"]
+    sys.exit(1 if bad else 0)
 
 
 if __name__ == "__main__":

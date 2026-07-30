@@ -100,15 +100,26 @@ flagged `TODO: fetch` until pulled, never fabricated). Target material:
 materials/soft-clay/
 ├── README.md                 # this file — the master spec
 ├── material.json             # machine-readable entry point (refs both profiles)
-├── visual/pbr.json           # visual / PBR profile
-├── mechanical/profile.json   # mechanical / hyperelastic profile
+├── visual/pbr.json           # visual / PBR profile (render-validated)
+├── mechanical/
+│   ├── profile.json          # mechanical / hyperelastic profile (datasheet-verified)
+│   ├── fitted-ogden.json     # fitted Ogden N=3 coefficients + provenance (re-fit from raw data)
+│   ├── constitutive_check.py # validate coefficients reproduce the measured curve (#6)
+│   └── raw-tensile/          # vendored ASTM D412 raw curves (ODbL, Marechal et al.)
+│       ├── Ecoflex_00-30.csv
+│       └── Dragon_Skin_10_MEDIUM.csv
 ├── sources.md                # cited base assets + databases
 ├── maps/                     # authored detail maps (the custom 30%) — 1024px, seamless
 │   ├── detail-fingerprint.png
 │   ├── detail-compression.png
 │   └── detail-micro-rough.png
+├── renders/                  # Cycles validation renders (both variants PASS)
+│   ├── soft-clay-clay-neutral.png
+│   └── soft-clay-cyan-navy.png
 └── scripts/
-    └── gen_detail_maps.py    # headless Blender generator (deterministic)
+    ├── gen_detail_maps.py    # headless Blender map generator (deterministic)
+    ├── render_soft_clay.py   # headless Cycles render validation
+    └── fit_ogden.py          # re-fit Ogden from raw CSV (reproducibility)
 ```
 
 ## Sources & citations

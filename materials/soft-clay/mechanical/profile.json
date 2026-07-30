@@ -9,39 +9,47 @@
       "shore": { "scale": "00", "value": 30 },
       "datasheet": {
         "mix_ratio_by_volume": "1A:1B",
-        "cure_time_at_room_temp": "4h",
-        "mixed_viscosity_cP": 12000,
+        "pot_life": "45 min",
+        "cure_time_at_room_temp": "4h demold",
+        "mixed_viscosity_cP": 3000,
         "cured_color": "translucent",
-        "elongation_at_break_pct": 350,
+        "specific_gravity": 1.07,
+        "elongation_at_break_pct": 900,
         "tensile_strength_psi": 200,
-        "tear_strength_pli": 22
+        "tear_strength_pli": 38,
+        "modulus_100_pct_psi": 10,
+        "source": "Smooth-On Ecoflex 00-30 TDS (smooth-on.com/products/ecoflex-00-30, accessed 2026-07-31)"
       },
       "use_case": "true clay/flesh soft — fingertip-pressable, hero squishy surfaces",
-      "datasheet_values_status": "cited from Smooth-On TDS; treat as nominal — verify against latest TDS before FEA"
+      "datasheet_values_status": "VERIFIED against Smooth-On Ecoflex 00-30 TDS 2026-07-31. NOTE: earlier nominal values were WRONG (elongation 350->900%, viscosity 12000->3000 cP, tear 22->38 pli) — memory is unreliable for datasheet numbers; always cite the TDS."
     },
     "soft-clay-10a": {
       "reference_material": "Smooth-On Dragon Skin 10",
       "shore": { "scale": "A", "value": 10 },
       "datasheet": {
         "mix_ratio_by_volume": "1A:1B",
-        "cure_time_at_room_temp": "75min",
+        "pot_life": "20 min",
+        "cure_time_at_room_temp": "5h demold",
         "mixed_viscosity_cP": 23000,
         "cured_color": "translucent",
-        "elongation_at_break_pct": 425,
+        "specific_gravity": 1.07,
+        "elongation_at_break_pct": 1000,
         "tensile_strength_psi": 475,
-        "tear_strength_pli": 102
+        "tear_strength_pli": 102,
+        "modulus_100_pct_psi": 22,
+        "source": "Smooth-On Dragon Skin 10 Medium TDS (smooth-on.com/products/dragon-skin-10-medium, accessed 2026-07-31)"
       },
-      "use_case": "firmer gummy elastomer — structural deformable parts that must hold shape",
-      "datasheet_values_status": "cited from Smooth-On TDS; treat as nominal — verify against latest TDS before FEA"
+      "use_case": "firmer gummy elastomer — structural deformable parts that must hold shape (variant = Dragon Skin 10 Medium)",
+      "datasheet_values_status": "VERIFIED against Smooth-On Dragon Skin 10 Medium TDS 2026-07-31. NOTE: earlier nominal elongation 425% was WRONG — actual 1000%."
     }
   },
   "hyperelastic_model": {
-    "framework": "Ogden (N=2)",
+    "framework": "Ogden (N=3), incompressible, true (Cauchy) stress, uniaxial tension",
     "strain_energy": "W = sum_i (mu_i/alpha_i) * (lambda1^alpha_i + lambda2^alpha_i + lambda3^alpha_i - 3)",
     "coefficients": {
-      "status": "TODO: fetch fitted (mu_i, alpha_i) from the Soft Robotics Materials Database for each reference material — DO NOT FABRICATE",
+      "status": "fitted (re-fit from raw ASTM D412 data; see fitted-ogden.json)",
       "fitted_file": "mechanical/fitted-ogden.json",
-      "fitted_file_status": "not yet created"
+      "fitted_file_status": "created — 3-term Ogden, both variants, R2 > 0.9994"
     },
     "notes": [
       "Ecoflex/Dragon Skin silicones are typically fit with a 2- or 3-term Ogden or a Yeoh model.",

@@ -1,0 +1,56 @@
+{
+  "source": {
+    "database": "Soft Robotics Materials Database (Marechal et al.)",
+    "repo": "https://github.com/LucMarechal/Soft-Robotics-Materials-Database",
+    "commit": "8ff66c3bdc17bd226eabe83b778e13ea1e2ef8ce",
+    "paper": "Towards a Common Framework and Database of Materials for Soft Robotics (UCL Discovery id 10112846)",
+    "test_standard": "ASTM D412 (Die C dumbbell), uniaxial tensile pull-to-failure, 450 mm/min, room-temperature cure, nominal mix ratio",
+    "lab": "Univ. Savoie Mont Blanc - SYMME Lab, Annecy, FR",
+    "data_license": "ODC Open Database License (ODbL) — vendored raw data retains ODbL, see raw-tensile/README.md"
+  },
+  "method": {
+    "model": "Ogden 3-term, incompressible, TRUE (Cauchy) stress, uniaxial tension",
+    "true_stress_formula": "sigma_true = sum_i mu_i * (lambda^alpha_i - lambda^(-alpha_i/2)),  lambda = exp(true_strain)",
+    "engineering_relation": "sigma_eng = sigma_true / lambda",
+    "fit": "scipy minimize(trust-constr), SSE objective, constraint mu_i*alpha_i > 0 (stability), tol 1e-12, init mu=alpha=1. Re-run locally from the vendored raw CSV via scripts/fit_ogden.py (reproducible).",
+    "warning": "Coefficients are for TRUE stress-strain (per source). FEA solvers expect true data. Do NOT plug into engineering-data pipelines without converting."
+  },
+  "variants": {
+    "soft-clay-0030": {
+      "reference_material": "Smooth-On Ecoflex 00-30",
+      "raw_data_file": "raw-tensile/Ecoflex_00-30.csv",
+      "source_path": "Tensile-Tests-Data/Ecoflex 00-30.csv",
+      "status": "fitted",
+      "model": "Ogden N=3",
+      "coefficients": {
+        "mu": [0.029988182977140867, 0.03470229802135919, 0.0024408244115569286],
+        "mu_unit": "MPa",
+        "alpha": [0.5950969464772476, 0.4773475901453288, 3.2262318422720213]
+      },
+      "stability": { "mu_times_alpha": [0.0178, 0.0166, 0.0079], "all_positive": true },
+      "fit_quality": { "N_points": 705, "max_true_strain": 2.837, "stretch_at_break": 17.07, "RMSE_MPa": 0.0306, "R2": 0.99998 },
+      "crosscheck": {
+        "engineering_stress_at_break_MPa": { "ogden_predicted": 1.367, "measured": 1.359, "smooth_on_tensile": 1.379, "smooth_on_psi": 200 },
+        "verdict": "MATCH — Ogden eng-stress at break reproduces both the measured curve and the Smooth-On datasheet tensile (200 psi)."
+      }
+    },
+    "soft-clay-10a": {
+      "reference_material": "Smooth-On Dragon Skin 10 Medium",
+      "raw_data_file": "raw-tensile/Dragon_Skin_10_MEDIUM.csv",
+      "source_path": "Tensile-Tests-Data/Dragon Skin 10 MEDIUM.csv",
+      "status": "fitted",
+      "model": "Ogden N=3 (degenerate: all three alpha collapsed to 2.2704 — terms effectively summed; fit still R2=0.99957). Consider 2-term refit if numerics matter downstream.",
+      "coefficients": {
+        "mu": [0.026875930676945166, 0.023320111531738838, 0.03493648353995998],
+        "mu_unit": "MPa",
+        "alpha": [2.2704021916434716, 2.2703778014449396, 2.270386143336344]
+      },
+      "stability": { "mu_times_alpha": [0.0610, 0.0529, 0.0793], "all_positive": true },
+      "fit_quality": { "N_points": 457, "max_true_strain": 2.434, "stretch_at_break": 11.41, "RMSE_MPa": 0.1316, "R2": 0.99957 },
+      "crosscheck": {
+        "engineering_stress_at_break_MPa": { "ogden_predicted": 1.875, "measured": 1.844, "smooth_on_tensile": 3.275, "smooth_on_psi": 475 },
+        "verdict": "MIXED — Ogden faithfully reproduces the MEASURED curve (1.844 MPa, R2=0.99957), but the measured specimen broke ~43% below the Smooth-On datasheet tensile (475 psi). Not a fit failure: real specimen/batch behavior, consistent with the source paper's thesis that manufacturer datasheets are unreliable for soft elastomers."
+      }
+    }
+  }
+}
