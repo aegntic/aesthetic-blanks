@@ -102,7 +102,13 @@ materials/soft-clay/
 ├── material.json             # machine-readable entry point (refs both profiles)
 ├── visual/pbr.json           # visual / PBR profile
 ├── mechanical/profile.json   # mechanical / hyperelastic profile
-└── sources.md                # cited base assets + databases
+├── sources.md                # cited base assets + databases
+├── maps/                     # authored detail maps (the custom 30%) — 1024px, seamless
+│   ├── detail-fingerprint.png
+│   ├── detail-compression.png
+│   └── detail-micro-rough.png
+└── scripts/
+    └── gen_detail_maps.py    # headless Blender generator (deterministic)
 ```
 
 ## Sources & citations

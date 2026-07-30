@@ -18,10 +18,16 @@
     "apply_gradient_as_material": true
   },
   "custom_detail_maps": [
-    { "slot": "detail-fingerprint", "source": "authored", "status": "TODO" },
-    { "slot": "detail-compression", "source": "authored", "status": "TODO" },
-    { "slot": "detail-micro-rough", "source": "authored", "status": "TODO" }
+    { "slot": "detail-fingerprint", "source": "authored", "status": "done", "path": "./maps/detail-fingerprint.png", "size_px": 1024, "tiling": "seamless" },
+    { "slot": "detail-compression", "source": "authored", "status": "done", "path": "./maps/detail-compression.png", "size_px": 1024, "tiling": "seamless" },
+    { "slot": "detail-micro-rough", "source": "authored", "status": "done", "path": "./maps/detail-micro-rough.png", "size_px": 1024, "tiling": "seamless" }
   ],
+  "generator": {
+    "script": "./scripts/gen_detail_maps.py",
+    "engine": "blender --background (headless bpy)",
+    "deterministic": true,
+    "seed": 7
+  },
   "base_assets": {
     "visual": "ambientCG Plastic/Rubber/Clay (CC0) — see sources.md",
     "mechanical": "Soft Robotics Materials Database (Marechal et al.) — see sources.md"

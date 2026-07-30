@@ -25,7 +25,7 @@
           "source": "detail-compression map",
           "midlevel": 0.5,
           "scale": 0.002,
-          "status": "TODO: authored map not yet committed"
+          "status": "done — maps/detail-compression.png"
         }
       },
       "notes": [
@@ -47,20 +47,26 @@
       "type": "color/detail",
       "contrast": "very_low",
       "tiling": true,
-      "status": "TODO: authored"
+      "status": "done",
+      "path": "./maps/detail-fingerprint.png",
+      "rgb_range": "0.651–0.906, mean 0.779 (clay grey)"
     },
     "detail-compression": {
       "type": "displacement+normal",
       "frequency": "low",
-      "status": "TODO: authored"
+      "status": "done",
+      "path": "./maps/detail-compression.png",
+      "value_range": "0.412–0.588, centered 0.5 (matches displacement midlevel)"
     },
     "detail-micro-rough": {
       "type": "roughness modulation",
       "resolution_px": 1024,
       "tiling": true,
-      "status": "TODO: authored"
+      "status": "done",
+      "path": "./maps/detail-micro-rough.png",
+      "value_range": "0.722–0.878 (drives roughness directly)"
     }
   },
   "base_asset": "ambientCG Plastic/Rubber/Clay (CC0) — tuned from this, not used as-is",
-  "status": "parameters locked; authored detail maps pending"
+  "status": "parameters locked; authored detail maps committed (seamless tiling, 1024px, RGBA)"
 }
