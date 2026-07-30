@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "profile": "visual",
+  "material": "soft-industrial-clay",
+  "purpose": "Soft, matte, claymation surface. Reads as soft under cool lighting without looking waxy or uniformly glossy.",
+  "renderers": {
+    "blender": {
+      "engine": "Cycles",
+      "shader": "Principled BSDF (v4+)",
+      "principled_bsdf": {
+        "base_color": "#C9C7C4",
+        "base_color_gradient": { "enabled": true, "from": "#4FB3C4", "to": "#16263A" },
+        "metallic": 0.0,
+        "roughness": 0.82,
+        "roughness_variance": "0.72–0.88 via detail-micro-rough map",
+        "ior": 1.46,
+        "specular_ior_level": 0.3,
+        "subsurface_weight": 0.08,
+        "subsurface_radius": [0.4, 0.3, 0.3],
+        "subsurface_scale": 0.01,
+        "subsurface_radius_unit": "meters",
+        "clearcoat_weight": 0.05,
+        "clearcoat_roughness": 0.5,
+        "displacement": {
+          "source": "detail-compression map",
+          "midlevel": 0.5,
+          "scale": 0.002,
+          "status": "TODO: authored map not yet committed"
+        }
+      },
+      "notes": [
+        "Roughness high — matte, no hard specular hotspot.",
+        "Subsurface weight low with small radius for soft sheen, not wax translucency.",
+        "Gradient applied on the material (color ramp) so deformation stretches it along the surface."
+      ]
+    },
+    "generic_pbr_metalrough": {
+      "base_color": "#C9C7C4",
+      "metallic": 0.0,
+      "roughness": 0.82,
+      "normal": "from detail-compression + detail-micro-rough",
+      "subsurface": { "weight": 0.08, "radius": [0.4, 0.3, 0.3] }
+    }
+  },
+  "detail_maps": {
+    "detail-fingerprint": {
+      "type": "color/detail",
+      "contrast": "very_low",
+      "tiling": true,
+      "status": "TODO: authored"
+    },
+    "detail-compression": {
+      "type": "displacement+normal",
+      "frequency": "low",
+      "status": "TODO: authored"
+    },
+    "detail-micro-rough": {
+      "type": "roughness modulation",
+      "resolution_px": 1024,
+      "tiling": true,
+      "status": "TODO: authored"
+    }
+  },
+  "base_asset": "ambientCG Plastic/Rubber/Clay (CC0) — tuned from this, not used as-is",
+  "status": "parameters locked; authored detail maps pending"
+}

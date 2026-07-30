@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "name": "soft-industrial-clay",
+  "version": "1.0.0",
+  "type": "deformable-surface-material",
+  "theme": "Soft Industrial Clay",
+  "tactile_variants": ["soft-clay-0030", "soft-clay-10a"],
+  "description": "Deformable soft-surface material. Locked visual (PBR) + mechanical (hyperelastic) profiles for a stable tactile identity across the ecosystem.",
+  "profiles": {
+    "visual": { "$ref": "./visual/pbr.json" },
+    "mechanical": { "$ref": "./mechanical/profile.json" }
+  },
+  "color": {
+    "palettes": {
+      "matte-clay-neutral": "#C9C7C4",
+      "gradient-cyan-navy": { "from": "#4FB3C4", "to": "#16263A" }
+    },
+    "apply_gradient_as_material": true
+  },
+  "custom_detail_maps": [
+    { "slot": "detail-fingerprint", "source": "authored", "status": "TODO" },
+    { "slot": "detail-compression", "source": "authored", "status": "TODO" },
+    { "slot": "detail-micro-rough", "source": "authored", "status": "TODO" }
+  ],
+  "base_assets": {
+    "visual": "ambientCG Plastic/Rubber/Clay (CC0) — see sources.md",
+    "mechanical": "Soft Robotics Materials Database (Marechal et al.) — see sources.md"
+  },
+  "sources": "./sources.md",
+  "notes": [
+    "Visual profile is ready for still renders.",
+    "Mechanical fitted coefficients are flagged TODO in mechanical/profile.json — fetch from the database, do not fabricate."
+  ]
+}

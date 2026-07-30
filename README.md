@@ -24,6 +24,8 @@ aesthetic-blanks/
 ├── lorikeetcx/           # multi-page AI CX concierge (Framer/Lenis scroll DNA)
 ├── blumenkopf/           # editorial design-studio (light, 3px Swiss-line grid, oversized wordmark, orange marquee)
 ├── [next-site]/           # future blanks land here as top-level folders
+├── materials/             # reusable material packs (non-web assets)
+│   └── soft-clay/         # deformable Soft Industrial Clay (visual + mechanical)
 └── ...
 ```
 
