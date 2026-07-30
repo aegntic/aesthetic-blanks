@@ -68,5 +68,24 @@
     }
   },
   "base_asset": "ambientCG Plastic/Rubber/Clay (CC0) — tuned from this, not used as-is",
-  "status": "parameters locked; authored detail maps committed (seamless tiling, 1024px, RGBA)"
+  "status": "parameters locked; authored detail maps committed; visual profile render-validated (both variants PASS)",
+  "variant_overrides": {
+    "clay": {
+      "subsurface_weight": 0.5,
+      "subsurface_scale": 3.0,
+      "subsurface_radius": [0.6, 0.4, 0.35],
+      "note": "Larger subsurface than the base params — a 1m-scale object needs scale ~3 (~1mm scattering) for the soft glow to read at the terminator. Validated PASS."
+    }
+  },
+  "render_validation": {
+    "script": "./scripts/render_soft_clay.py",
+    "engine": "Cycles (CPU; Blender build lacks OpenImageDenoise, GPU Blackwell CUDA unsupported in 4.3 — denoising off, CPU render)",
+    "samples": 96,
+    "resolution_px": 1024,
+    "variants": {
+      "clay-neutral": { "path": "./renders/soft-clay-clay-neutral.png", "verdict": "PASS", "iterations": 3 },
+      "cyan-navy": { "path": "./renders/soft-clay-cyan-navy.png", "verdict": "PASS", "iterations": 1 }
+    },
+    "criteria_checked": ["matte, no hard specular hotspot", "soft subsurface glow at edges (not flat opaque)", "cyan->navy gradient correct top-to-bottom", "no banding/artifacts"]
+  }
 }
