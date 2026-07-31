@@ -25,6 +25,24 @@ const rise = {
 
 const NAV = ["Glass", "Metal", "Clay", "Tokens"];
 
+// Sibling theme blanks in this repo. Empty href = the current theme (no self-link).
+const THEMES = [
+  { name: "ClayUI", href: "https://github.com/aegntic/aesthetic-blanks/tree/main/clayui" },
+  { name: "GlassUI", href: "" },
+];
+
+// Brand sites — same set on every theme's footer.
+const SITES = [
+  { name: "aegntic.ai", href: "https://aegntic.ai" },
+  { name: "socialskills.ninja", href: "https://socialskills.ninja" },
+  { name: "clawreform.com", href: "https://clawreform.com" },
+  { name: "cldcde.cc", href: "https://cldcde.cc" },
+  { name: "prompt.fail", href: "https://prompt.fail" },
+  { name: "karen.city", href: "https://karen.city" },
+  { name: "hlfstr.com", href: "https://hlfstr.com" },
+];
+
+
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-5 py-8 sm:py-12">
@@ -164,33 +182,80 @@ export default function Page() {
         </GlassPanel>
       </motion.section>
 
-      {/* footer */}
-      <footer className="mt-24 border-t border-clay-dark/30 pt-8 pb-4">
-        <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-clay-ink/60">
-          <div className="flex items-center gap-3">
-            {/* aegntic.ai logo — black on light, white on dark */}
-            <img
-              src="/ae-logo-black.png"
-              alt=""
-              width={28}
-              height={28}
-              className="h-7 w-7 dark:hidden"
-            />
-            <img
-              src="/ae-logo-white.png"
-              alt=""
-              width={28}
-              height={28}
-              className="hidden h-7 w-7 dark:block"
-            />
-            <span>GlassUI · Clay · Metal · Liquid Glass</span>
+      {/* footer — sibling themes + brand sites + centered logo */}
+      <footer className="mt-24 border-t border-clay-dark/30 pt-8 pb-10">
+        <div className="flex flex-col items-center gap-6 text-center">
+          {/* sibling themes */}
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
+            <span className="text-xs font-bold uppercase tracking-widest text-clay-ink/40">Themes</span>
+            {THEMES.map((t) =>
+              t.href ? (
+                <a
+                  key={t.name}
+                  href={t.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-clay-ink/70 transition-colors hover:text-clay-cyan"
+                >
+                  {t.name}
+                </a>
+              ) : (
+                <span key={t.name} className="glass-text font-display font-bold">
+                  {t.name}
+                </span>
+              ),
+            )}
           </div>
-          <span>
-            design by{" "}
-            <a href="https://aegntic.ai" className="font-semibold text-clay-ink hover:text-clay-cyan">
-              Mattae Cooper
-            </a>
-          </span>
+
+          {/* brand sites */}
+          <nav
+            aria-label="Sites"
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm"
+          >
+            {SITES.map((s) => (
+              <a
+                key={s.href}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-clay-ink/70 transition-colors hover:text-clay-cyan"
+              >
+                {s.name}
+              </a>
+            ))}
+          </nav>
+
+          {/* centered logo at the bottom */}
+          <div className="mt-2 flex flex-col items-center gap-2">
+            <div className="flex justify-center">
+              {/* aegntic.ai logo — black on light, white on dark */}
+              <img
+                src="/ae-logo-black.png"
+                alt="aegntic.ai"
+                width={40}
+                height={40}
+                className="h-10 w-10 dark:hidden"
+              />
+              <img
+                src="/ae-logo-white.png"
+                alt="aegntic.ai"
+                width={40}
+                height={40}
+                className="hidden h-10 w-10 dark:block"
+              />
+            </div>
+            <span className="text-xs text-clay-ink/50">
+              design by{" "}
+              <a
+                href="https://aegntic.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-clay-ink/70 hover:text-clay-cyan"
+              >
+                Mattae Cooper · aegntic.ai
+              </a>
+            </span>
+          </div>
         </div>
       </footer>
     </main>
