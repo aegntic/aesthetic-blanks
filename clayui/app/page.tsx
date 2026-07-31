@@ -30,6 +30,7 @@ const rise = {
 const THEMES = [
   { name: "ClayUI", href: "" },
   { name: "GlassUI", href: "https://github.com/aegntic/aesthetic-blanks/tree/main/glassui" },
+  { name: "Nero", href: "https://github.com/aegntic/aesthetic-blanks/tree/main/neroui" },
 ];
 
 // Brand sites — same set on every theme's footer.
