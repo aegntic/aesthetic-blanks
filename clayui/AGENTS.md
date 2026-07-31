@@ -30,3 +30,7 @@ border. Shadows come from the clay tokens, not arbitrary Tailwind shadow values.
 - `ClayHero` (three.js) must stay client-only — it is dynamically imported with
   `ssr: false` in `app/page.tsx`.
 - Reduced motion is respected globally (`globals.css`). Don't bypass it.
+
+## Credit
+
+Design — Mattae Cooper ([aegntic.ai](https://aegntic.ai)).
