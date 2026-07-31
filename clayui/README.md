@@ -2,6 +2,8 @@
 
 > Every element is clay. A soft-clay design system with a deformable 3D hero.
 
+> **Design — Mattae Cooper, [aegntic.ai](https://aegntic.ai)**
+
 The web instantiation of the **Soft Industrial Clay** material identity defined in
 [`../materials/soft-clay`](../materials/soft-clay). Where that pack locks the
 *material* (matte clay, soft sheen, cyan→navy, validated Blender renders), this

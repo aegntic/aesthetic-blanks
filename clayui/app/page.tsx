@@ -139,6 +139,11 @@ export default function Page() {
 
       <footer className="mt-24 border-t border-clay-dark/40 pt-8 pb-4 text-sm text-clay-ink-soft">
         ClayUI · Soft Industrial Clay · every element is clay
+        <span className="mx-2 text-clay-dark/50">·</span>
+        design by{" "}
+        <a href="https://aegntic.ai" className="font-semibold text-clay-ink hover:text-clay-cyan">
+          Mattae Cooper
+        </a>
       </footer>
     </main>
   );
