@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "profile": "visual",
+  "material": "soft-industrial-clay",
+  "purpose": "Soft, matte, claymation surface. Reads as soft under cool lighting without looking waxy or uniformly glossy.",
+  "renderers": {
+    "blender": {
+      "engine": "Cycles",
+      "shader": "Principled BSDF (v4+)",
+      "principled_bsdf": {
+        "base_color": "#C9C7C4",
+        "base_color_gradient": { "enabled": true, "from": "#4FB3C4", "to": "#16263A" },
+        "metallic": 0.0,
+        "roughness": 0.82,
+        "roughness_variance": "0.72–0.88 via detail-micro-rough map",
+        "ior": 1.46,
+        "specular_ior_level": 0.3,
+        "subsurface_weight": 0.08,
+        "subsurface_radius": [0.4, 0.3, 0.3],
+        "subsurface_scale": 0.01,
+        "subsurface_radius_unit": "meters",
+        "clearcoat_weight": 0.05,
+        "clearcoat_roughness": 0.5,
+        "displacement": {
+          "source": "detail-compression map",
+          "midlevel": 0.5,
+          "scale": 0.002,
+          "status": "done — maps/detail-compression.png"
+        }
+      },
+      "notes": [
+        "Roughness high — matte, no hard specular hotspot.",
+        "Subsurface weight low with small radius for soft sheen, not wax translucency.",
+        "Gradient applied on the material (color ramp) so deformation stretches it along the surface."
+      ]
+    },
+    "generic_pbr_metalrough": {
+      "base_color": "#C9C7C4",
+      "metallic": 0.0,
+      "roughness": 0.82,
+      "normal": "from detail-compression + detail-micro-rough",
+      "subsurface": { "weight": 0.08, "radius": [0.4, 0.3, 0.3] }
+    }
+  },
+  "detail_maps": {
+    "detail-fingerprint": {
+      "type": "color/detail",
+      "contrast": "very_low",
+      "tiling": true,
+      "status": "done",
+      "path": "./maps/detail-fingerprint.png",
+      "rgb_range": "0.651–0.906, mean 0.779 (clay grey)"
+    },
+    "detail-compression": {
+      "type": "displacement+normal",
+      "frequency": "low",
+      "status": "done",
+      "path": "./maps/detail-compression.png",
+      "value_range": "0.412–0.588, centered 0.5 (matches displacement midlevel)"
+    },
+    "detail-micro-rough": {
+      "type": "roughness modulation",
+      "resolution_px": 1024,
+      "tiling": true,
+      "status": "done",
+      "path": "./maps/detail-micro-rough.png",
+      "value_range": "0.722–0.878 (drives roughness directly)"
+    }
+  },
+  "base_asset": "ambientCG Plastic/Rubber/Clay (CC0) — tuned from this, not used as-is",
+  "status": "parameters locked; authored detail maps committed; visual profile render-validated (both variants PASS)",
+  "variant_overrides": {
+    "clay": {
+      "subsurface_weight": 0.5,
+      "subsurface_scale": 3.0,
+      "subsurface_radius": [0.6, 0.4, 0.35],
+      "note": "Larger subsurface than the base params — a 1m-scale object needs scale ~3 (~1mm scattering) for the soft glow to read at the terminator. Validated PASS."
+    }
+  },
+  "render_validation": {
+    "script": "./scripts/render_soft_clay.py",
+    "engine": "Cycles GPU (OPTIX, RTX 5070 Ti Laptop) + OpenImageDenoise, Blender 4.5.9 LTS",
+    "samples": 256,
+    "resolution_px": 1024,
+    "gpu_fix": "Blender 4.3 apt build could not JIT Blackwell (sm_120) kernels (CUDA <12.8) and lacked OIDN. Installed official Blender 4.5.9 (bundles CUDA 12.8+) -> OPTIX works, OIDN denoising on. Set SOFT_CLAY_GPU=1 to use GPU.",
+    "variants": {
+      "clay-neutral": { "path": "./renders/soft-clay-clay-neutral.png", "verdict": "PASS", "quality_10": 8, "notes": "matte soft clay, subsurface glow at terminator, no hard specular" },
+      "cyan-navy": { "path": "./renders/soft-clay-cyan-navy.png", "verdict": "PASS", "notes": "cyan->navy vertical gradient confirmed (objective pixel sample: top RGB ~0.39,0.49,0.59 lighter; bottom ~0.22,0.28,0.35 darker, delta>0.17 all channels) + vision cross-check" }
+    },
+    "criteria_checked": ["matte, no hard specular hotspot", "soft subsurface glow at edges (not flat opaque)", "cyan->navy gradient present (pixel-verified)", "denoised clean, no banding/artifacts"]
+  }
+}
