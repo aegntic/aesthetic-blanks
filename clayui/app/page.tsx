@@ -140,13 +140,33 @@ export default function Page() {
         </div>
       </section>
 
-      <footer className="mt-24 border-t border-clay-dark/40 pt-8 pb-4 text-sm text-clay-muted">
-        ClayUI · Soft Industrial Clay · every element is clay
-        <span className="mx-2 text-clay-dark/50">·</span>
-        design by{" "}
-        <a href="https://aegntic.ai" className="font-semibold text-clay-ink hover:text-clay-cyan">
-          Mattae Cooper
-        </a>
+      <footer className="mt-24 border-t border-clay-dark/40 pt-8 pb-4">
+        <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-clay-muted">
+          <div className="flex items-center gap-3">
+            {/* aegntic.ai logo — black on light, white on dark */}
+            <img
+              src="/ae-logo-black.png"
+              alt=""
+              width={28}
+              height={28}
+              className="h-7 w-7 dark:hidden"
+            />
+            <img
+              src="/ae-logo-white.png"
+              alt=""
+              width={28}
+              height={28}
+              className="hidden h-7 w-7 dark:block"
+            />
+            <span>ClayUI · Soft Industrial Clay · every element is clay</span>
+          </div>
+          <span>
+            design by{" "}
+            <a href="https://aegntic.ai" className="font-semibold text-clay-ink hover:text-clay-cyan">
+              Mattae Cooper
+            </a>
+          </span>
+        </div>
       </footer>
     </main>
   );
