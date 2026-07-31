@@ -91,6 +91,35 @@
     box-shadow: var(--clay-raised);
     color: #f4fafb;
   }
+
+  /* ── clay headings ──
+     Letters become soft claymation extrusions: a top light edge plus stacked,
+     darkening, soft-blurred layers give chunky matte depth (not hard plastic).
+     Embossed = pressed into the clay. Gradient = clay fill with a soft drop. */
+
+  .clay-text {
+    text-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.5),
+      0 1px 0 #9b9994,
+      0 2px 1px rgba(110, 107, 102, 0.55),
+      0 4px 3px rgba(80, 77, 72, 0.42),
+      0 7px 8px rgba(43, 39, 36, 0.32),
+      0 14px 18px rgba(43, 39, 36, 0.22);
+  }
+
+  .clay-text-embossed {
+    text-shadow:
+      0 1px 1px rgba(255, 255, 255, 0.65),
+      0 -1px 1px rgba(43, 39, 36, 0.28);
+  }
+
+  .clay-text-gradient {
+    background: linear-gradient(165deg, #5bc4d2 0%, #16263a 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 6px 8px rgba(43, 39, 36, 0.28));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
