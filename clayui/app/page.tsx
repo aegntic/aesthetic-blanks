@@ -7,6 +7,7 @@ import { ClayCard } from "@/components/ClayCard";
 import { ClayInput } from "@/components/ClayInput";
 import { ClayToggle } from "@/components/ClayToggle";
 import { ClayNav } from "@/components/ClayNav";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 // three.js is client-only
 const ClayHero = dynamic(
@@ -45,6 +46,7 @@ export default function Page() {
           </span>
         </div>
         <ClayNav items={["Overview", "System", "Hero", "Tokens"]} />
+        <ThemeToggle />
       </header>
 
       {/* hero */}
@@ -59,7 +61,7 @@ export default function Page() {
           <h1 className="clay-text mt-5 font-display text-5xl font-extrabold leading-[1.02] tracking-tight text-clay-ink sm:text-6xl">
             Everything is clay.
           </h1>
-          <p className="mt-5 max-w-md text-lg text-clay-ink-soft">
+          <p className="mt-5 max-w-md text-lg text-clay-muted">
             A soft-clay design system where every surface is matte, every shadow is
             pillowy, and every press sinks into the clay. The hero is a real
             deformable 3D clay blob.
@@ -79,24 +81,25 @@ export default function Page() {
         <motion.h2 {...rise} className="clay-text font-display text-3xl font-bold tracking-tight text-clay-ink">
           The clay system
         </motion.h2>
-        <motion.p {...rise} className="mt-2 max-w-xl text-clay-ink-soft">
+        <motion.p {...rise} className="mt-2 max-w-xl text-clay-muted">
           Every primitive inherits the same tactile identity — no redesign per element.
         </motion.p>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card>
             <h3 className="clay-text font-display text-xl font-bold text-clay-ink">Buttons</h3>
-            <p className="mt-1 text-sm text-clay-ink-soft">Press to sink into clay.</p>
+            <p className="mt-1 text-sm text-clay-muted">Press to sink into clay.</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <ClayButton>Default</ClayButton>
               <ClayButton variant="gradient">Gradient</ClayButton>
               <ClayButton variant="ghost">Ghost</ClayButton>
+              <ClayButton variant="dark">Carved</ClayButton>
             </div>
           </Card>
 
           <Card>
             <h3 className="clay-text font-display text-xl font-bold text-clay-ink">Toggle</h3>
-            <p className="mt-1 text-sm text-clay-ink-soft">Knob slides across a clay well.</p>
+            <p className="mt-1 text-sm text-clay-muted">Knob slides across a clay well.</p>
             <div className="mt-5">
               <ClayToggle />
             </div>
@@ -104,7 +107,7 @@ export default function Page() {
 
           <Card>
             <h3 className="clay-text font-display text-xl font-bold text-clay-ink">Nav</h3>
-            <p className="mt-1 text-sm text-clay-ink-soft">Active item sinks in.</p>
+            <p className="mt-1 text-sm text-clay-muted">Active item sinks in.</p>
             <div className="mt-5">
               <ClayNav items={["Home", "Work", "About"]} />
             </div>
@@ -112,7 +115,7 @@ export default function Page() {
 
           <Card className="sm:col-span-2 lg:col-span-2">
             <h3 className="clay-text font-display text-xl font-bold text-clay-ink">Field</h3>
-            <p className="mt-1 text-sm text-clay-ink-soft">Text sits in an impression in the clay.</p>
+            <p className="mt-1 text-sm text-clay-muted">Text sits in an impression in the clay.</p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <ClayInput placeholder="name@clay.studio" />
               <ClayButton variant="gradient" className="shrink-0">
@@ -137,7 +140,7 @@ export default function Page() {
         </div>
       </section>
 
-      <footer className="mt-24 border-t border-clay-dark/40 pt-8 pb-4 text-sm text-clay-ink-soft">
+      <footer className="mt-24 border-t border-clay-dark/40 pt-8 pb-4 text-sm text-clay-muted">
         ClayUI · Soft Industrial Clay · every element is clay
         <span className="mx-2 text-clay-dark/50">·</span>
         design by{" "}

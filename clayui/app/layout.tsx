@@ -21,8 +21,13 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // No-FOUC: apply theme before first paint.
+  const themeInit = `(function(){try{var t=localStorage.getItem('clay-theme');var d=t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}else{document.documentElement.style.colorScheme='light';}}catch(e){}})();`;
   return (
-    <html lang="en" className={`${nunito.variable} ${baloo.variable}`}>
+    <html lang="en" className={`${nunito.variable} ${baloo.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
       <body>{children}</body>
     </html>
   );

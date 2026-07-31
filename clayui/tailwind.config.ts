@@ -10,21 +10,22 @@ import type { Config } from "tailwindcss";
  * display) — rounded terminals match the claymation feel.
  */
 const config: Config = {
+  darkMode: "class",
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         clay: {
-          base: "#C9C7C4", // matte clay neutral (validated Blender base color)
-          bg: "#E6E4DF", // page backdrop — elements sit in clay
-          surface: "#D2D0CC",
-          light: "#DAD8D4",
-          dark: "#B6B4AF",
-          ink: "#2B2724", // warm dark text
-          muted: "#6B6660",
-          cyan: "#4FB3C4",
-          navy: "#16263A",
-          warm: "#C75D4B",
+          base: "rgb(var(--c-base) / <alpha-value>)",
+          bg: "rgb(var(--c-bg) / <alpha-value>)",
+          surface: "rgb(var(--c-surface) / <alpha-value>)",
+          light: "rgb(var(--c-light) / <alpha-value>)",
+          dark: "rgb(var(--c-dark) / <alpha-value>)",
+          ink: "rgb(var(--c-ink) / <alpha-value>)",
+          muted: "rgb(var(--c-muted) / <alpha-value>)",
+          cyan: "rgb(var(--c-cyan) / <alpha-value>)",
+          navy: "rgb(var(--c-navy) / <alpha-value>)",
+          warm: "rgb(var(--c-warm) / <alpha-value>)",
         },
       },
       fontFamily: {
