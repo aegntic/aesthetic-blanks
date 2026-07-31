@@ -40,7 +40,7 @@ export default function Page() {
       <header className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <span className="clay h-9 w-9 rounded-clay-sm" aria-hidden />
-          <span className="font-display text-2xl font-extrabold tracking-tight text-clay-ink">
+          <span className="clay-text font-display text-2xl font-extrabold tracking-tight text-clay-ink">
             ClayUI
           </span>
         </div>
@@ -56,7 +56,7 @@ export default function Page() {
           <span className="clay-inset inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-clay-muted">
             Soft Industrial Clay
           </span>
-          <h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.02] tracking-tight text-clay-ink sm:text-6xl">
+          <h1 className="clay-text mt-5 font-display text-5xl font-extrabold leading-[1.02] tracking-tight text-clay-ink sm:text-6xl">
             Everything is clay.
           </h1>
           <p className="mt-5 max-w-md text-lg text-clay-ink-soft">
@@ -76,7 +76,7 @@ export default function Page() {
 
       {/* system showcase */}
       <section id="system" className="mt-20 md:mt-28">
-        <motion.h2 {...rise} className="font-display text-3xl font-bold tracking-tight text-clay-ink">
+        <motion.h2 {...rise} className="clay-text font-display text-3xl font-bold tracking-tight text-clay-ink">
           The clay system
         </motion.h2>
         <motion.p {...rise} className="mt-2 max-w-xl text-clay-ink-soft">
@@ -85,7 +85,7 @@ export default function Page() {
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card>
-            <h3 className="font-display text-xl font-bold text-clay-ink">Buttons</h3>
+            <h3 className="clay-text font-display text-xl font-bold text-clay-ink">Buttons</h3>
             <p className="mt-1 text-sm text-clay-ink-soft">Press to sink into clay.</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <ClayButton>Default</ClayButton>
@@ -95,7 +95,7 @@ export default function Page() {
           </Card>
 
           <Card>
-            <h3 className="font-display text-xl font-bold text-clay-ink">Toggle</h3>
+            <h3 className="clay-text font-display text-xl font-bold text-clay-ink">Toggle</h3>
             <p className="mt-1 text-sm text-clay-ink-soft">Knob slides across a clay well.</p>
             <div className="mt-5">
               <ClayToggle />
@@ -103,7 +103,7 @@ export default function Page() {
           </Card>
 
           <Card>
-            <h3 className="font-display text-xl font-bold text-clay-ink">Nav</h3>
+            <h3 className="clay-text font-display text-xl font-bold text-clay-ink">Nav</h3>
             <p className="mt-1 text-sm text-clay-ink-soft">Active item sinks in.</p>
             <div className="mt-5">
               <ClayNav items={["Home", "Work", "About"]} />
@@ -111,7 +111,7 @@ export default function Page() {
           </Card>
 
           <Card className="sm:col-span-2 lg:col-span-2">
-            <h3 className="font-display text-xl font-bold text-clay-ink">Field</h3>
+            <h3 className="clay-text font-display text-xl font-bold text-clay-ink">Field</h3>
             <p className="mt-1 text-sm text-clay-ink-soft">Text sits in an impression in the clay.</p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <ClayInput placeholder="name@clay.studio" />
