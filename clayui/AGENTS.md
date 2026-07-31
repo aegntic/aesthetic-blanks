@@ -31,6 +31,24 @@ border. Shadows come from the clay tokens, not arbitrary Tailwind shadow values.
   `ssr: false` in `app/page.tsx`.
 - Reduced motion is respected globally (`globals.css`). Don't bypass it.
 
+## Footer convention (applies to every theme blank)
+
+Every theme blank's footer follows the same structure — keep it when branding,
+update it when adding a new theme:
+
+1. **Themes row** — links to every sibling theme blank in the repo
+   (`THEMES` in `app/page.tsx`). The current theme renders highlighted
+   (`clay-text` here) with no self-link. Add a new theme to every blank's
+   `THEMES` list when one ships.
+2. **Sites row** — the shared brand link set (`SITES`): aegntic.ai,
+   socialskills.ninja, clawreform.com, cldcde.cc, prompt.fail, karen.city,
+   hlfstr.com. Same set on every theme.
+3. **Centered aegntic.ai logo** at the very bottom — `public/ae-logo-{black,white}.png`,
+   black on light / white on dark (`dark:hidden` / `hidden dark:block`), with
+   the design credit beneath.
+
+All external links use `target="_blank" rel="noopener noreferrer"`.
+
 ## Credit
 
 Design — Mattae Cooper ([aegntic.ai](https://aegntic.ai)).
