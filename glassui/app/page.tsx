@@ -29,6 +29,7 @@ const NAV = ["Glass", "Metal", "Clay", "Tokens"];
 const THEMES = [
   { name: "ClayUI", href: "https://github.com/aegntic/aesthetic-blanks/tree/main/clayui" },
   { name: "GlassUI", href: "" },
+  { name: "Nero", href: "https://github.com/aegntic/aesthetic-blanks/tree/main/neroui" },
 ];
 
 // Brand sites — same set on every theme's footer.
