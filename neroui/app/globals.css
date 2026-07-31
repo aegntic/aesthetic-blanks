@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Nero — Veined Marble & Gold ───
+   Premium animated blank. Material: polished nero marble veined with gold;
+   didone serif display (Playfair) + Jost UI. Gold foil text, hairline rules,
+   gallery restraint. Dark luxury primary; light "statuario" marble alt.
+   Motion (loader + parallax + reveals) is driven by GSAP in app/page.tsx. */
+:root {
+  /* marble + gold palette (dark luxury default) */
+  --m-black: 13 13 15;
+  --m-deep: 20 20 23;
+  --m-stone: 40 40 45;
+  --m-vein: 201 162 74;       /* gold */
+  --gold: #c9a24a;
+  --gold-light: #e7c878;
+  --gold-deep: #9c7a35;
+  --cream: #f4f1ea;
+  --wine: #5e1a2b;
+  --ink: #ece8df;
+  --muted: #a99f8d;
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+
+  /* gold foil gradient (for clip text + accents) */
+  --gold-foil: linear-gradient(135deg, #fbf3dc 0%, #e7c878 28%, #c9a24a 52%, #9c7a35 72%, #f0dca6 100%);
+
+  /* layered marble veining — dark nero */
+  --marble-veins: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cg fill='none' stroke='%23c9a24a' stroke-width='1' opacity='0.5'%3E%3Cpath d='M0 90 C160 40 250 200 400 130 S600 90 800 170'/%3E%3Cpath d='M-20 280 C130 240 270 380 410 300 S590 270 820 340' opacity='0.42'/%3E%3Cpath d='M0 430 C180 390 300 500 460 430 S620 420 820 460' opacity='0.34'/%3E%3Cpath d='M0 600 C140 560 280 680 430 600 S640 600 820 640' opacity='0.3'/%3E%3Cpath d='M60 0 C140 120 80 240 200 300 S320 520 280 800' opacity='0.38'/%3E%3Cpath d='M700 -10 C640 140 720 240 650 380 S560 700 600 800' opacity='0.32'/%3E%3Cpath d='M380 0 C420 160 340 300 460 420 S520 640 480 800' opacity='0.28'/%3E%3C/g%3E%3C/svg%3E");
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* light "statuario" marble alt */
+.light {
+  --m-black: 244 241 234;
+  --m-deep: 232 228 218;
+  --m-stone: 205 199 186;
+  --ink: 26 24 22;
+  --muted: 96 88 74;
+  --marble-veins: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cg fill='none' stroke='%239c7a35' stroke-width='1.1' opacity='0.55'%3E%3Cpath d='M0 90 C160 40 250 200 400 130 S600 90 800 170'/%3E%3Cpath d='M-20 280 C130 240 270 380 410 300 S590 270 820 340' opacity='0.4'/%3E%3Cpath d='M0 430 C180 390 300 500 460 430 S620 420 820 460' opacity='0.34'/%3E%3Cpath d='M60 0 C140 120 80 240 200 300 S320 520 280 800' opacity='0.4'/%3E%3Cpath d='M700 -10 C640 140 720 240 650 380 S560 700 600 800' opacity='0.32'/%3C/g%3E%3C/svg%3E");
+}
+
+@layer base {
+  html { scroll-behavior: auto; } /* Lenis owns smooth scroll */
+  body {
+    background-color: rgb(var(--m-black));
+    background-image:
+      radial-gradient(120% 80% at 75% -5%, rgba(94, 26, 43, 0.35), transparent 55%),
+      radial-gradient(90% 70% at 15% 100%, rgba(201, 162, 74, 0.10), transparent 60%),
+      linear-gradient(160deg, rgb(var(--m-deep)), rgb(var(--m-black)));
+    background-attachment: fixed;
+    color: rgb(var(--ink));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  /* marble veining fixed layer behind everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -10%;
+    background-image: var(--marble-veins);
+    background-size: 120% 120%;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: var(--grain);
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+}
+
+@layer components {
+  /* gold foil text — gradient clip + shimmer */
+  .gold-text {
+    background-image: var(--gold-foil);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 24px rgba(201, 162, 74, 0.22);
+  }
+  /* gold hairline rule with a center diamond */
+  .hairline {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+    opacity: 0.7;
+  }
+  .hairline::before {
+    content: "◆";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--gold);
+    font-size: 10px;
+    background: rgb(var(--m-black));
+    padding: 0 8px;
+  }
+  /* marble slab surface — polished stone panel with gold rim */
+  .marble-slab {
+    position: relative;
+    background:
+      radial-gradient(140% 120% at 30% 0%, rgba(255,255,255,0.05), transparent 60%),
+      linear-gradient(155deg, rgb(var(--m-stone)), rgb(var(--m-black)));
+    border: 1px solid rgba(201, 162, 74, 0.22);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+      0 30px 70px -30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+  }
+  .marble-slab::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--marble-veins);
+    background-size: 140% 140%;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  /* gold-edged button */
+  .gold-btn {
+    position: relative;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    background: transparent;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    transition: color 0.4s var(--ease-lux);
+    overflow: hidden;
+    z-index: 0;
+  }
+  .gold-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gold-foil);
+    transform: translateY(101%);
+    transition: transform 0.5s var(--ease-lux);
+    z-index: -1;
+  }
+  .gold-btn:hover { color: #15110a; }
+  .gold-btn:hover::before { transform: translateY(0); }
+  /* element reveal targets (GSAP sets initial state; .is-revealed = shown) */
+  .reveal { will-change: transform, opacity; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
