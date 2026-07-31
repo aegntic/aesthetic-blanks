@@ -125,13 +125,17 @@ def make_material(name, variant, maps_dir):
         gen = nt.nodes.new("ShaderNodeTexCoord"); gen.location = (-700, 400)
         sep = nt.nodes.new("ShaderNodeSeparateXYZ"); sep.location = (-500, 400)
         nt.links.new(gen.outputs["Generated"], sep.inputs["Vector"])
+        mul = nt.nodes.new("ShaderNodeMath"); mul.operation = "MULTIPLY"; mul.location = (-400, 400)
+        mul.inputs[1].default_value = 2.5  # stretch Z so the cyan->navy gradient saturates and clearly reads
+        nt.links.new(sep.outputs["Z"], mul.inputs[0])
         ramp = nt.nodes.new("ShaderNodeValToRGB"); ramp.location = (-300, 400)
         cr = ramp.color_ramp
+        cr.interpolation = "EASE"
         cr.elements[0].color = (0.310, 0.702, 0.769, 1.0)   # #4FB3C4 cyan
-        cr.elements[1].color = (0.086, 0.149, 0.227, 1.0)   # #16263A navy
-        nt.links.new(sep.outputs["Z"], ramp.inputs["Fac"])
+        cr.elements[1].color = (0.050, 0.090, 0.150, 1.0)   # near-#16263A navy, darker for contrast
+        nt.links.new(mul.outputs["Value"], ramp.inputs["Fac"])
         mult = nt.nodes.new("ShaderNodeMixRGB"); mult.location = (0, 300)
-        mult.blend_type = "MULTIPLY"; mult.inputs["Fac"].default_value = 0.5
+        mult.blend_type = "MULTIPLY"; mult.inputs["Fac"].default_value = 0.3
         nt.links.new(ramp.outputs["Color"], mult.inputs["Color1"])
         nt.links.new(tex_fp.outputs["Color"], mult.inputs["Color2"])
         nt.links.new(mult.outputs["Color"], bsdf.inputs["Base Color"])
@@ -183,9 +187,10 @@ def setup_scene(variant, maps_dir, out_path):
     cam.rotation_euler = (math.radians(70), 0, 0)
     bpy.context.scene.camera = cam
 
-    # cool key + fill + rim
-    add_area("Key", (0.8, -2.5, 3.5), 900, (0.85, 0.90, 1.0), 3.5)
-    add_area("Fill", (-3.5, -1.0, 2.0), 220, (0.7, 0.78, 0.95), 4.0)
+    # cool key + fill + rim (gradient variant uses lower key so albedo reads)
+    key_energy = 480 if variant == "gradient" else 900
+    add_area("Key", (0.8, -2.5, 3.5), key_energy, (0.85, 0.90, 1.0), 3.5)
+    add_area("Fill", (-3.5, -1.0, 2.0), 120 if variant == "gradient" else 220, (0.7, 0.78, 0.95), 4.0)
     add_area("Rim", (-1.0, 2.5, 2.5), 300, (0.8, 0.85, 1.0), 2.5)
 
     world = bpy.data.worlds.new("W"); world.use_nodes = True
@@ -196,8 +201,13 @@ def setup_scene(variant, maps_dir, out_path):
 
     sc = bpy.context.scene
     sc.render.engine = "CYCLES"
-    sc.cycles.samples = 96
-    sc.cycles.use_denoising = False  # this Blender build lacks OpenImageDenoise
+    gpu = os.environ.get("SOFT_CLAY_GPU") == "1"
+    sc.cycles.samples = int(os.environ.get("SOFT_CLAY_SAMPLES", "256" if gpu else "96"))
+    try:  # OIDN present in Blender 4.5+ (was absent in 4.3 apt build)
+        sc.cycles.use_denoising = True
+        sc.cycles.denoiser = "OPENIMAGEDENOISE"
+    except Exception:
+        sc.cycles.use_denoising = False
     sc.cycles.use_adaptive_sampling = True
     sc.cycles.adaptive_threshold = 0.02
     sc.render.resolution_x = 1024

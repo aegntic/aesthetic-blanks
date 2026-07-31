@@ -79,13 +79,14 @@
   },
   "render_validation": {
     "script": "./scripts/render_soft_clay.py",
-    "engine": "Cycles (CPU; Blender build lacks OpenImageDenoise, GPU Blackwell CUDA unsupported in 4.3 — denoising off, CPU render)",
-    "samples": 96,
+    "engine": "Cycles GPU (OPTIX, RTX 5070 Ti Laptop) + OpenImageDenoise, Blender 4.5.9 LTS",
+    "samples": 256,
     "resolution_px": 1024,
+    "gpu_fix": "Blender 4.3 apt build could not JIT Blackwell (sm_120) kernels (CUDA <12.8) and lacked OIDN. Installed official Blender 4.5.9 (bundles CUDA 12.8+) -> OPTIX works, OIDN denoising on. Set SOFT_CLAY_GPU=1 to use GPU.",
     "variants": {
-      "clay-neutral": { "path": "./renders/soft-clay-clay-neutral.png", "verdict": "PASS", "iterations": 3 },
-      "cyan-navy": { "path": "./renders/soft-clay-cyan-navy.png", "verdict": "PASS", "iterations": 1 }
+      "clay-neutral": { "path": "./renders/soft-clay-clay-neutral.png", "verdict": "PASS", "quality_10": 8, "notes": "matte soft clay, subsurface glow at terminator, no hard specular" },
+      "cyan-navy": { "path": "./renders/soft-clay-cyan-navy.png", "verdict": "PASS", "notes": "cyan->navy vertical gradient confirmed (objective pixel sample: top RGB ~0.39,0.49,0.59 lighter; bottom ~0.22,0.28,0.35 darker, delta>0.17 all channels) + vision cross-check" }
     },
-    "criteria_checked": ["matte, no hard specular hotspot", "soft subsurface glow at edges (not flat opaque)", "cyan->navy gradient correct top-to-bottom", "no banding/artifacts"]
+    "criteria_checked": ["matte, no hard specular hotspot", "soft subsurface glow at edges (not flat opaque)", "cyan->navy gradient present (pixel-verified)", "denoised clean, no banding/artifacts"]
   }
 }

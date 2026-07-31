@@ -39,13 +39,14 @@
       "raw_data_file": "raw-tensile/Dragon_Skin_10_MEDIUM.csv",
       "source_path": "Tensile-Tests-Data/Dragon Skin 10 MEDIUM.csv",
       "status": "fitted",
-      "model": "Ogden N=3 (degenerate: all three alpha collapsed to 2.2704 — terms effectively summed; fit still R2=0.99957). Consider 2-term refit if numerics matter downstream.",
+      "model": "Ogden N=1",
+      "model_note": "Dragon Skin 10 Medium stress-stretch is a single-power-law response: 3-term and 2-term fits both collapsed to identical alpha (2.2704), so the honest non-degenerate form is 1-term. R2 identical (0.99957).",
       "coefficients": {
-        "mu": [0.026875930676945166, 0.023320111531738838, 0.03493648353995998],
+        "mu": [0.08513311457893886],
         "mu_unit": "MPa",
-        "alpha": [2.2704021916434716, 2.2703778014449396, 2.270386143336344]
+        "alpha": [2.2703858755342217]
       },
-      "stability": { "mu_times_alpha": [0.0610, 0.0529, 0.0793], "all_positive": true },
+      "stability": { "mu_times_alpha": [0.1932850208802593], "all_positive": true },
       "fit_quality": { "N_points": 457, "max_true_strain": 2.434, "stretch_at_break": 11.41, "RMSE_MPa": 0.1316, "R2": 0.99957 },
       "crosscheck": {
         "engineering_stress_at_break_MPa": { "ogden_predicted": 1.875, "measured": 1.844, "smooth_on_tensile": 3.275, "smooth_on_psi": 475 },
