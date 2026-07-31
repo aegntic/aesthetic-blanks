@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── GlassUI — clay + metal + liquid glass fusion ───
+   Three materials, one system:
+     - CLAY  (substrate): matte soft surface, pillowy shadows, rounded forms.
+     - METAL (accent):    polished/brushed metallic sheen.
+     - GLASS (overlay):   liquid glass — translucency, refraction rim, specular.
+   Liquid glass needs a vivid backdrop to refract; the body paints an aurora
+   behind it. */
+:root {
+  --c-base: 201 199 196;
+  --c-bg: 230 228 223;
+  --c-surface: 210 208 204;
+  --c-light: 220 218 214;
+  --c-dark: 182 180 175;
+  --c-ink: 43 39 36;
+  --c-muted: 107 102 96;
+  --c-cyan: 79 179 196;
+  --c-navy: 22 38 58;
+  --c-warm: 199 93 75;
+
+  --clay-surface-grad: linear-gradient(155deg, rgb(var(--c-light)), rgb(var(--c-dark)));
+  --clay-raised:
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.7),
+    inset 0 -1px 2px rgba(43, 39, 36, 0.12),
+    0 1px 2px rgba(43, 39, 36, 0.1),
+    0 10px 20px -6px rgba(43, 39, 36, 0.18),
+    0 24px 48px -16px rgba(43, 39, 36, 0.22);
+  --clay-pressed:
+    inset 0 2px 5px rgba(43, 39, 36, 0.3),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.35);
+
+  --ct-edge: 255 255 255;
+  --ct-drop: 43 39 36;
+
+  --radius: 1.5rem;
+  --radius-sm: 1rem;
+  --ease-clay: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-sans: "Nunito", system-ui, sans-serif;
+  --font-display: "Baloo 2", system-ui, sans-serif;
+  --clay-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.dark {
+  --c-base: 122 126 132;
+  --c-bg: 16 19 24;
+  --c-surface: 38 42 49;
+  --c-light: 47 52 60;
+  --c-dark: 28 32 38;
+  --c-ink: 236 234 229;
+  --c-muted: 158 163 170;
+  --clay-raised:
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.07),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 10px 20px -6px rgba(0, 0, 0, 0.45),
+    0 24px 48px -16px rgba(0, 0, 0, 0.55);
+  --clay-pressed:
+    inset 0 2px 6px rgba(0, 0, 0, 0.65),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+  --ct-drop: 0 0 0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    /* vivid base so glass + metal have something to refract/reflect */
+    background-color: rgb(var(--c-bg));
+    background-image:
+      radial-gradient(60% 50% at 12% 8%, rgb(var(--c-cyan) / 0.45), transparent 60%),
+      radial-gradient(55% 45% at 92% 12%, rgb(var(--c-warm) / 0.40), transparent 60%),
+      radial-gradient(60% 55% at 78% 88%, rgb(var(--c-navy) / 0.50), transparent 60%),
+      radial-gradient(50% 50% at 20% 90%, rgb(var(--c-cyan) / 0.30), transparent 60%),
+      var(--clay-grain);
+    background-attachment: fixed;
+    color: rgb(var(--c-ink));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* ── clay substrate ── */
+  .clay {
+    background-image: var(--clay-surface-grad);
+    border-radius: var(--radius);
+    box-shadow: var(--clay-raised);
+  }
+  .clay-inset {
+    background-image: var(--clay-surface-grad);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--clay-pressed);
+  }
+  .clay-pressable {
+    transition: box-shadow 0.28s var(--ease-clay), transform 0.28s var(--ease-clay);
+    will-change: transform, box-shadow;
+  }
+  .clay-pressable:hover {
+    transform: translateY(-2px);
+  }
+  .clay-pressable:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow: var(--clay-pressed);
+  }
+
+  /* ── metal (polished + brushed) ── */
+  .metal {
+    background-image: linear-gradient(135deg, #e9e9ee 0%, #a7a7b0 22%, #f6f6f8 42%, #6f6f78 62%, #d7d7dd 80%, #9a9aa3 100%);
+    background-size: 200% 200%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-sm);
+    color: #1b1b21;
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.85),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.3),
+      0 6px 18px rgba(20, 20, 30, 0.28);
+  }
+  .metal-brushed {
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.10) 0 1px, transparent 1px 3px),
+      linear-gradient(180deg, #cfd0d6, #9a9ba3);
+  }
+  .metal-pressable {
+    transition: background-position 0.4s var(--ease-clay), transform 0.28s var(--ease-clay), box-shadow 0.28s var(--ease-clay);
+    will-change: transform, background-position;
+  }
+  .metal-pressable:hover {
+    background-position: 100% 100%;
+    transform: translateY(-2px);
+  }
+  .metal-pressable:active {
+    transform: translateY(1px) scale(0.99);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ── liquid glass (translucency + refraction rim + specular) ── */
+  .glass {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.12) 100%);
+    backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+    -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.06);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: var(--radius);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.6),
+      inset 0 -1px 2px rgba(255, 255, 255, 0.12),
+      inset 1px 0 1px rgba(255, 255, 255, 0.2),
+      0 12px 40px rgba(20, 20, 35, 0.28),
+      0 2px 8px rgba(20, 20, 35, 0.18);
+    overflow: hidden;
+  }
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 70% at 18% -10%, rgba(255, 255, 255, 0.4), transparent 55%);
+    pointer-events: none;
+  }
+  .glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(80% 60% at 95% 110%, rgba(255, 255, 255, 0.18), transparent 50%);
+    pointer-events: none;
+  }
+  .glass-pressable {
+    transition: transform 0.28s var(--ease-clay), box-shadow 0.28s var(--ease-clay), backdrop-filter 0.28s var(--ease-clay);
+  }
+  .glass-pressable:hover {
+    transform: translateY(-2px);
+    backdrop-filter: blur(26px) saturate(200%) brightness(1.1);
+  }
+  .glass-pressable:active {
+    transform: translateY(1px) scale(0.99);
+  }
+
+  /* ── typography ── */
+  .clay-text {
+    text-shadow:
+      0 1px 0 rgb(var(--ct-edge) / 0.45),
+      0 1px 0 rgb(var(--ct-drop) / 0.25),
+      0 2px 1px rgb(var(--ct-drop) / 0.3),
+      0 4px 3px rgb(var(--ct-drop) / 0.28),
+      0 7px 8px rgb(var(--ct-drop) / 0.3),
+      0 14px 18px rgb(var(--ct-drop) / 0.22);
+  }
+  /* metallic heading: brushed-silver gradient clip + soft deboss */
+  .metal-text {
+    background-image: linear-gradient(180deg, #ffffff 0%, #c9c9d0 35%, #6f6f78 55%, #ececf0 75%, #9a9aa3 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+  }
+  /* glass heading: cool frosted gradient */
+  .glass-text {
+    background-image: linear-gradient(180deg, #ffffff 0%, rgb(var(--c-cyan)) 60%, rgb(var(--c-navy)) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -24,7 +24,10 @@ aesthetic-blanks/
 ├── lorikeetcx/           # multi-page AI CX concierge (Framer/Lenis scroll DNA)
 ├── blumenkopf/           # editorial design-studio (light, 3px Swiss-line grid, oversized wordmark, orange marquee)
 ├── bleibtgleich/         # single-designer portfolio (warm paper · lowercase mega · truth word-stagger · 12-col grid overlay · project hover image-storm)
+├── clayui/               # Soft Industrial Clay design system + deformable 3D clay hero (every element is clay)
 ├── [next-site]/           # future blanks land here as top-level folders
+├── materials/             # reusable material packs (non-web assets)
+│   └── soft-clay/         # deformable Soft Industrial Clay (visual + mechanical)
 └── ...
 ```
 
@@ -79,6 +82,7 @@ Live edit free; JSON export requires unlock on `/pricing` (demo unlock; Stripe l
 
 | Folder | Source inspiration | Style notes |
 |--------|--------------------|-------------|
+| `clayui` | materials/soft-clay (original) | **Soft Industrial Clay system**: matte clay surfaces, pillowy shadows, rounded forms, press-to-sink; deformable 3D clay hero (R3F). Every element is clay. |
 | `studio` | akicreate DNA (product) | Letter-matrix catalog, advantages band, paired blanks, live edit, paid export |
 | `akicreate` | https://akicreate.com/ (Awwwards nominee; Webflow+GSAP) | **Pass 3 quality rebuild**: Tobias 43px letter matrix `#313131`, dual rails, works **slider** (3 dots/arrows), about `#72a1c8`, black talk footer, 6 case 01/02/03, full PartText/PartImage kit |
 | `victorfuruya` | https://victorfuruya.com/ (multidisciplinary designer) | Satoshi + Lenis shell; B&W hero plate; letter-split; full-bleed work slides; carve-into-memory triad; **image style prompts** on every PartImage; mega menu |
