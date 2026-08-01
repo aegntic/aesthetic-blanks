@@ -1,0 +1,232 @@
+#!/usr/bin/env bash
+# aegntic-design-system — Unified design workflow entry point
+
+set -euo pipefail
+
+SKILL_ROOT="/home/ae/.hermes/skills"
+UUPM_SCRIPTS="$SKILL_ROOT/ui-ux-pro-max/scripts"
+SKILLUI_BIN="$(which skillui)"
+
+usage() {
+  cat <<'EOF'
+aegntic-design-system — Unified design workflow
+
+Usage:
+  aegntic-design-system <command> [args...]
+
+Commands:
+  design-system <brief> [--persist] [--output-dir <dir>] [--variance N] [--motion N] [--density N] [-p <name>]
+    Generate comprehensive design system from brief using ui-ux-pro-max
+
+  style <query> [--domain <domain>]
+    Search styles/color/typography/charts/icons/ux/landing/gsap
+
+  stack <query> <stack>
+    Get stack-specific implementation guidance (react, nextjs, vue, svelte, etc.)
+
+  skillui <url|dir|repo> [--mode ultra] [--out <dir>] [--name <name>]
+    Reverse-engineer design system from live site/repo/local dir
+
+  figma <url> <node-id>
+    Translate Figma design to production code
+
+  preflight
+    Run full Pre-Flight Check (60+ validations) via design-taste-frontend
+
+  impeccable <craft|teach|extract> [description]
+    Production-grade component craft
+
+  banner <platform> <style> [description]
+    Generate banner for social/ads/hero
+
+  slides <topic> [--template <name>]
+    Create strategic HTML presentation
+
+  init <project-name> <brief>
+    Scaffold new aesthetic-blanks template with design system
+
+  help
+    Show this help
+
+Examples:
+  aegntic-design-system design-system "SaaS dashboard dark minimal" --persist --output-dir . -p "MyApp" --variance 7 --motion 6 --density 4
+  aegntic-design-system style "glassmorphism dark" --domain style
+  aegntic-design-system skillui https://linear.app --mode ultra --out ./design-systems/linear
+  aegntic-design-system init my-template "fintech dashboard dark dense"
+EOF
+}
+
+cmd_design_system() {
+  local brief="" persist=false output_dir="." project_name="" variance="" motion="" density=""
+  while [[ $# -gt 0 ]]; do
+    case $1 in
+      --persist) persist=true ;;
+      --output-dir) output_dir="$2"; shift ;;
+      -p) project_name="$2"; shift ;;
+      --variance) variance="$2"; shift ;;
+      --motion) motion="$2"; shift ;;
+      --density) density="$2"; shift ;;
+      *) brief="$1" ;;
+    esac
+    shift
+  done
+  [[ -z "$brief" ]] && { echo "Error: brief required" >&2; exit 1; }
+
+  local args=("$brief" --design-system)
+  [[ "$persist" == true ]] && args+=(--persist)
+  [[ -n "$output_dir" ]] && args+=(--output-dir "$output_dir")
+  [[ -n "$project_name" ]] && args+=(-p "$project_name")
+  [[ -n "$variance" ]] && args+=(--variance "$variance")
+  [[ -n "$motion" ]] && args+=(--motion "$motion")
+  [[ -n "$density" ]] && args+=(--density "$density")
+
+  python "$UUPM_SCRIPTS/search.py" "${args[@]}"
+}
+
+cmd_style() {
+  local query="" domain=""
+  while [[ $# -gt 0 ]]; do
+    case $1 in
+      --domain) domain="$2"; shift ;;
+      *) query="$1" ;;
+    esac
+    shift
+  done
+  [[ -z "$query" ]] && { echo "Error: query required" >&2; exit 1; }
+
+  local args=("$query")
+  [[ -n "$domain" ]] && args+=(--domain "$domain")
+  python "$UUPM_SCRIPTS/search.py" "${args[@]}"
+}
+
+cmd_stack() {
+  local query="" stack=""
+  while [[ $# -gt 0 ]]; do
+    case $1 in
+      *) [[ -z "$query" ]] && query="$1" || stack="$1" ;;
+    esac
+    shift
+  done
+  [[ -z "$query" || -z "$stack" ]] && { echo "Error: query and stack required" >&2; exit 1; }
+
+  python "$UUPM_SCRIPTS/search.py" "$query" --stack "$stack"
+}
+
+cmd_skillui() {
+  [[ -z "$SKILLUI_BIN" ]] && { echo "Error: skillui not installed. Run: npm install -g skillui" >&2; exit 1; }
+  "$SKILLUI_BIN" "$@"
+}
+
+cmd_figma() {
+  local url="" node_id=""
+  while [[ $# -gt 0 ]]; do
+    [[ -z "$url" ]] && url="$1" || node_id="$1"
+    shift
+  done
+  [[ -z "$url" || -z "$node_id" ]] && { echo "Error: url and node-id required" >&2; exit 1; }
+
+  # This invokes the figma-implement-design skill via Hermes
+  echo "Invoke via Hermes: /figma-implement-design $url $node_id"
+}
+
+cmd_preflight() {
+  echo "Invoke via Hermes: /design-taste-frontend (runs full Pre-Flight Check)"
+}
+
+cmd_impeccable() {
+  local mode="${1:-craft}"
+  shift || true
+  local desc="$*"
+  echo "Invoke via Hermes: /impeccable $mode ${desc:+$desc}"
+}
+
+cmd_banner() {
+  local platform="${1:-}" style="${2:-}"
+  shift 2 || true
+  local desc="$*"
+  [[ -z "$platform" || -z "$style" ]] && { echo "Error: platform and style required" >&2; exit 1; }
+  echo "Invoke via Hermes: /banner-design $platform $style ${desc:+$desc}"
+}
+
+cmd_slides() {
+  local topic="${1:-}" template=""
+  shift || true
+  while [[ $# -gt 0 ]]; do
+    case $1 in
+      --template) template="$2"; shift ;;
+      *) ;;
+    esac
+    shift
+  done
+  [[ -z "$topic" ]] && { echo "Error: topic required" >&2; exit 1; }
+  echo "Invoke via Hermes: /slides $topic ${template:+--template $template}"
+}
+
+cmd_init() {
+  local name="${1:-}" brief="${2:-}"
+  [[ -z "$name" || -z "$brief" ]] && { echo "Error: project-name and brief required" >&2; exit 1; }
+
+  local project_dir="./$name"
+  mkdir -p "$project_dir"/{app,components,lib,public,scripts}
+  mkdir -p "$project_dir/design-system/$name/pages"
+
+  # Copy this workflow
+  cp -r "$(dirname "$0")"/* "$project_dir/" 2>/dev/null || true
+
+  # Generate design system
+  python "$UUPM_SCRIPTS/search.py" "$brief" --design-system --persist -p "$name" --output-dir "$project_dir"
+
+  # Create CLAUDE.md
+  cat > "$project_dir/CLAUDE.md" <<EOF
+# $name — Aesthetic Blank Template
+
+Generated from brief: "$brief"
+
+## Quick Start
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
+
+## Design System
+See \`design-system/$name/MASTER.md\` for global tokens and patterns.
+Page overrides in \`design-system/$name/pages/\`.
+
+## Workflow
+\`aegntic-design-system help\` for all commands.
+
+## Skills Available
+- /impeccable craft|teach|extract
+- /design-taste-frontend
+- /ui-styling
+- /design-system
+- /brand
+- /banner-design
+- /slides
+- /figma-implement-design
+- skillui (CLI)
+EOF
+
+  echo "Initialized $project_dir with design system"
+  echo "Next: cd $project_dir && npm install"
+}
+
+main() {
+  local cmd="${1:-help}"
+  shift || true
+  case $cmd in
+    design-system) cmd_design_system "$@" ;;
+    style) cmd_style "$@" ;;
+    stack) cmd_stack "$@" ;;
+    skillui) cmd_skillui "$@" ;;
+    figma) cmd_figma "$@" ;;
+    preflight) cmd_preflight ;;
+    impeccable) cmd_impeccable "$@" ;;
+    banner) cmd_banner "$@" ;;
+    slides) cmd_slides "$@" ;;
+    init) cmd_init "$@" ;;
+    help|*) usage ;;
+  esac
+}
+
+main "$@"
