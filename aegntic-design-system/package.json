@@ -1,24 +1,15 @@
 {
   "name": "@aegntic/design-system-workflow",
-  "version": "1.0.0",
-  "description": "Unified design & UI/UX workflow plugin for aegntic aesthetic-blanks",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Complete standalone design & UI/UX workflow for aesthetic-blanks — 10 vendored skills + skillui CLI + MCP configs",
+  "main": "SKILL.md",
   "scripts": {
-    "design-system": "python /home/ae/.hermes/skills/ui-ux-pro-max/scripts/search.py",
-    "skillui": "skillui",
+    "design-system": "python3 skills/ui-ux-pro-max/scripts/search.py",
+    "skillui": "node scripts/skillui/app/page.jsx",
     "preflight": "echo 'Run /design-taste-frontend for full Pre-Flight Check'",
-    "impeccable": "echo 'Use /impeccable craft|teach|extract'",
-    "figma": "echo 'Use /figma-implement-design <url> <node-id>'"
+    "skills": "./scripts/aegntic-design-system skills"
   },
-  "keywords": [
-    "design",
-    "ui",
-    "ux",
-    "design-system",
-    "aesthetic",
-    "aegntic",
-    "workflow"
-  ],
+  "keywords": ["design", "ui", "ux", "design-system", "aesthetic", "aegntic", "workflow"],
   "author": "aegntic",
   "license": "MIT",
   "repository": {

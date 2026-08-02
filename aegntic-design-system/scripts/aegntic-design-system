@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
-# aegntic-design-system — Unified design workflow entry point
+# aegntic-design-system — Unified design workflow CLI
+# Self-contained: works from any cloned aesthetic-blanks repo
 
 set -euo pipefail
 
-SKILL_ROOT="/home/ae/.hermes/skills"
-UUPM_SCRIPTS="$SKILL_ROOT/ui-ux-pro-max/scripts"
-SKILLUI_BIN="$(which skillui)"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+SKILLS_DIR="$REPO_ROOT/skills"
+UUPM_DIR="$SKILLS_DIR/ui-ux-pro-max"
+UUPM_SCRIPTS="$UUPM_DIR/scripts"
+SKILLUI_BIN="$(which skillui 2>/dev/null || echo "$SCRIPT_DIR/skillui/node_modules/.bin/skillui")"
 
 usage() {
   cat <<'EOF'
@@ -22,16 +26,16 @@ Commands:
     Search styles/color/typography/charts/icons/ux/landing/gsap
 
   stack <query> <stack>
-    Get stack-specific implementation guidance (react, nextjs, vue, svelte, etc.)
+    Get stack-specific implementation guidance
 
   skillui <url|dir|repo> [--mode ultra] [--out <dir>] [--name <name>]
     Reverse-engineer design system from live site/repo/local dir
 
   figma <url> <node-id>
-    Translate Figma design to production code
+    Show figma-implement-design invocation instructions
 
   preflight
-    Run full Pre-Flight Check (60+ validations) via design-taste-frontend
+    Run full Pre-Flight Check via design-taste-frontend
 
   impeccable <craft|teach|extract> [description]
     Production-grade component craft
@@ -44,6 +48,9 @@ Commands:
 
   init <project-name> <brief>
     Scaffold new aesthetic-blanks template with design system
+
+  skills
+    List all 10 composed skills with paths
 
   help
     Show this help
@@ -80,7 +87,7 @@ cmd_design_system() {
   [[ -n "$motion" ]] && args+=(--motion "$motion")
   [[ -n "$density" ]] && args+=(--density "$density")
 
-  python "$UUPM_SCRIPTS/search.py" "${args[@]}"
+  python3 "$UUPM_SCRIPTS/search.py" "${args[@]}"
 }
 
 cmd_style() {
@@ -96,37 +103,31 @@ cmd_style() {
 
   local args=("$query")
   [[ -n "$domain" ]] && args+=(--domain "$domain")
-  python "$UUPM_SCRIPTS/search.py" "${args[@]}"
+  python3 "$UUPM_SCRIPTS/search.py" "${args[@]}"
 }
 
 cmd_stack() {
   local query="" stack=""
-  while [[ $# -gt 0 ]]; do
-    case $1 in
-      *) [[ -z "$query" ]] && query="$1" || stack="$1" ;;
-    esac
-    shift
-  done
+  query="${1:-}"; stack="${2:-}"
   [[ -z "$query" || -z "$stack" ]] && { echo "Error: query and stack required" >&2; exit 1; }
-
-  python "$UUPM_SCRIPTS/search.py" "$query" --stack "$stack"
+  python3 "$UUPM_SCRIPTS/search.py" "$query" --stack "$stack"
 }
 
 cmd_skillui() {
-  [[ -z "$SKILLUI_BIN" ]] && { echo "Error: skillui not installed. Run: npm install -g skillui" >&2; exit 1; }
-  "$SKILLUI_BIN" "$@"
+  if [[ -x "$SKILLUI_BIN" ]]; then
+    "$SKILLUI_BIN" "$@"
+  else
+    echo "skillui not found. Install: npm install -g skillui" >&2
+    echo "Or run locally: cd $SCRIPT_DIR/skillui && npm install && npx skillui $*" >&2
+    exit 1
+  fi
 }
 
 cmd_figma() {
-  local url="" node_id=""
-  while [[ $# -gt 0 ]]; do
-    [[ -z "$url" ]] && url="$1" || node_id="$1"
-    shift
-  done
+  local url="${1:-}" node_id="${2:-}"
   [[ -z "$url" || -z "$node_id" ]] && { echo "Error: url and node-id required" >&2; exit 1; }
-
-  # This invokes the figma-implement-design skill via Hermes
   echo "Invoke via Hermes: /figma-implement-design $url $node_id"
+  echo "Requires Figma MCP server (see mcps/README.md)"
 }
 
 cmd_preflight() {
@@ -134,31 +135,26 @@ cmd_preflight() {
 }
 
 cmd_impeccable() {
-  local mode="${1:-craft}"
-  shift || true
-  local desc="$*"
-  echo "Invoke via Hermes: /impeccable $mode ${desc:+$desc}"
+  local mode="${1:-craft}"; shift || true
+  echo "Invoke via Hermes: /impeccable $mode ${*:+$*}"
 }
 
 cmd_banner() {
-  local platform="${1:-}" style="${2:-}"
-  shift 2 || true
-  local desc="$*"
+  local platform="${1:-}" style="${2:-}"; shift 2 || true
   [[ -z "$platform" || -z "$style" ]] && { echo "Error: platform and style required" >&2; exit 1; }
-  echo "Invoke via Hermes: /banner-design $platform $style ${desc:+$desc}"
+  echo "Invoke via Hermes: /banner-design $platform $style ${*:+$*}"
 }
 
 cmd_slides() {
-  local topic="${1:-}" template=""
-  shift || true
+  local topic="${1:-}"; shift || true
+  [[ -z "$topic" ]] && { echo "Error: topic required" >&2; exit 1; }
+  local template=""
   while [[ $# -gt 0 ]]; do
     case $1 in
       --template) template="$2"; shift ;;
-      *) ;;
     esac
     shift
   done
-  [[ -z "$topic" ]] && { echo "Error: topic required" >&2; exit 1; }
   echo "Invoke via Hermes: /slides $topic ${template:+--template $template}"
 }
 
@@ -166,17 +162,12 @@ cmd_init() {
   local name="${1:-}" brief="${2:-}"
   [[ -z "$name" || -z "$brief" ]] && { echo "Error: project-name and brief required" >&2; exit 1; }
 
-  local project_dir="./$name"
+  local project_dir="$REPO_ROOT/../$name"
   mkdir -p "$project_dir"/{app,components,lib,public,scripts}
   mkdir -p "$project_dir/design-system/$name/pages"
 
-  # Copy this workflow
-  cp -r "$(dirname "$0")"/* "$project_dir/" 2>/dev/null || true
+  python3 "$UUPM_SCRIPTS/search.py" "$brief" --design-system --persist -p "$name" --output-dir "$project_dir"
 
-  # Generate design system
-  python "$UUPM_SCRIPTS/search.py" "$brief" --design-system --persist -p "$name" --output-dir "$project_dir"
-
-  # Create CLAUDE.md
   cat > "$project_dir/CLAUDE.md" <<EOF
 # $name — Aesthetic Blank Template
 
@@ -195,25 +186,33 @@ Page overrides in \`design-system/$name/pages/\`.
 ## Workflow
 \`aegntic-design-system help\` for all commands.
 
-## Skills Available
-- /impeccable craft|teach|extract
-- /design-taste-frontend
-- /ui-styling
-- /design-system
-- /brand
-- /banner-design
-- /slides
-- /figma-implement-design
-- skillui (CLI)
+## Skills Available (in repo: aegntic-design-system/skills/)
+- design-taste-frontend
+- impeccable
+- ui-ux-pro-max
+- ui-styling
+- design-system
+- brand
+- banner-design
+- slides
+- figma-implement-design
+- skillui (CLI in scripts/)
 EOF
 
   echo "Initialized $project_dir with design system"
-  echo "Next: cd $project_dir && npm install"
+}
+
+cmd_skills() {
+  echo "Composed skills (in $SKILLS_DIR):"
+  for d in "$SKILLS_DIR"/*/; do
+    local name=$(basename "$d")
+    local files=$(find "$d" -type f | wc -l)
+    echo "  $name ($files files)"
+  done
 }
 
 main() {
-  local cmd="${1:-help}"
-  shift || true
+  local cmd="${1:-help}"; shift || true
   case $cmd in
     design-system) cmd_design_system "$@" ;;
     style) cmd_style "$@" ;;
@@ -225,6 +224,7 @@ main() {
     banner) cmd_banner "$@" ;;
     slides) cmd_slides "$@" ;;
     init) cmd_init "$@" ;;
+    skills) cmd_skills ;;
     help|*) usage ;;
   esac
 }
