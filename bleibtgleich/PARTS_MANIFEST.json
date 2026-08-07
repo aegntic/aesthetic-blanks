@@ -1,0 +1,39 @@
+{
+  "source": "https://www.bleibtgleich.com/",
+  "sourceSnapshot": "https://web.archive.org/web/20260325021617/https://www.bleibtgleich.com/",
+  "builtBy": "Bleibtgleich (single-designer portfolio, Kyiv) — UX/UI Designer & Webflow Developer",
+  "captureMethod": "end-user pasted snapshot HTML (webarchive serving 500/503 to the crawler's IP during capture); capture_site.py had an origin-extraction bug that stripped the webarchive wrapper and hit the live parked domain, so the snapshot HTML was supplied directly. Stack + IA + motion reverse-engineered from that HTML.",
+  "generatedAt": "2026-07-19T00:00:00+10:00",
+  "qualityBar": "reformcollective / wondermakers / victorfuruya class",
+  "stack": "Webflow + GSAP 3.12 + ScrollTrigger + Three.js (r79) + Lenis 0.2.28 + Socket.io (cursor tracking + /msg edits). Approximated in-blank with framer-motion + CSS (see notes).",
+  "pages": ["/", "/about"],
+  "crawlPaths": ["/", "/about"],
+  "designTokens": {
+    "paper": "#E8E5E0",
+    "paperDim": "#DED7D8",
+    "ink": "#0C0C0B",
+    "ash": "#2A2A28",
+    "mute": "#8A857E",
+    "accent": "#FF4D00",
+    "font": "Inter Tight (source: Webflow shared grotesk; site is fully lowercase)"
+  },
+  "motion": [
+    "{%motion:hero-wrap%} — page-wrap scale .01→1, rotate -48→0, blur 32em→0 (3s power4.inOut, once/session)",
+    "{%motion:truth-reveal%} — word/letter split, per-unit random-stagger opacity (truth .18 / long .08 / symbol .1)",
+    "{%motion:rule-x%} — horizontal thin rule width 0→100% (3s power4.out)",
+    "{%motion:rule-y%} — vertical rule height 0→100% (8s power4.out)",
+    "{%motion:grid-overlay%} — 12-col fixed overlay, per-col scaleX(0→1) on toggle (0.35s)",
+    "{%motion:project-storm%} — project-card hover spawns floating stills at random viewport positions (500ms cycle)",
+    "{%motion:shuffle%} — link/logo hover text scramble (2 iterations @ 80ms)",
+    "{%motion:webgl-distort%} — Three.js mouse-data-texture + chromatic aberration + 0.03 orange tint (DOCUMENTED; blank ships static plate)",
+    "{%motion:lenis%} — smooth scroll duration 1.2 exp easing (approximated in SmoothScroll.tsx)"
+  ],
+  "imageStylePrompts": {
+    "visionBg": "wide desaturated warm-paper environment, faint grain, near-monochrome + single orange accent, chromatic-aberration energy",
+    "projectStill": "editorial design still, muted warm grade, tactile, 4:3",
+    "encryptedMask": "abstract negative-space mask on warm paper, unreadable",
+    "aboutPortrait": "centered portrait, warm seamless backdrop, soft directional light",
+    "footerField": "wide atmospheric warm-paper still, full-bleed"
+  },
+  "notes": "Honesty: framer-motion approximates the source's GSAP timelines — motion DNA (random-stagger truth reveals, rule grows, page-wrap blur-in, hover image-storm, shuffle) is faithful in intent, not pixel-identical timing. The Three.js WebGL mouse-distort plate is documented and shipped as a static PartImage placeholder; brand pass re-introduces the shader (see AGENTS.md). The Socket.io remote-cursor + console '/msg' edit features are social gimmicks, intentionally omitted from the blank. Capture caveat: webarchive was in a broad outage during capture and the live domain is parked (GoDaddy Auctions); the snapshot HTML was supplied by the end user."
+}
